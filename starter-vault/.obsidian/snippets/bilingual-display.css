@@ -1,0 +1,129 @@
+/* Second Brain: visual Chinese labels in the native File Explorer only.
+   Canonical paths, original DOM text, sorting, links, and note content stay unchanged.
+   Disable bilingual-display in Settings > Appearance > CSS snippets to revert.
+   Verified against Obsidian 1.14.4; selectors may need review after UI updates.
+   CSS-generated labels are visual, not aliases/search entries/accessibility renaming.
+   No network URLs, scripts, @imports, global selectors or note-body styles.
+*/
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="00_Inbox"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="00_Inbox"] > .nav-folder-title-content:not(:has(input))::after { content: "00_收件箱"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="01_Knowledge"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="01_Knowledge"] > .nav-folder-title-content:not(:has(input))::after { content: "01_知识节点"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="02_Topics"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="02_Topics"] > .nav-folder-title-content:not(:has(input))::after { content: "02_主题知识"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books"] > .nav-folder-title-content:not(:has(input))::after { content: "03_书籍"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media"] > .nav-folder-title-content:not(:has(input))::after { content: "04_媒体资料"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="05_Personal"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="05_Personal"] > .nav-folder-title-content:not(:has(input))::after { content: "05_个人"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="06_Daily"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="06_Daily"] > .nav-folder-title-content:not(:has(input))::after { content: "06_每日记录"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="07_Timeline"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="07_Timeline"] > .nav-folder-title-content:not(:has(input))::after { content: "07_时间线"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="08_Projects"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="08_Projects"] > .nav-folder-title-content:not(:has(input))::after { content: "08_项目"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System"] > .nav-folder-title-content:not(:has(input))::after { content: "09_系统"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Profile.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Profile.md"] > .nav-file-title-content:not(:has(input))::after { content: "个人档案"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Preferences.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Preferences.md"] > .nav-file-title-content:not(:has(input))::after { content: "偏好"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Decision-Framework.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Decision-Framework.md"] > .nav-file-title-content:not(:has(input))::after { content: "决策框架"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Growth-Timeline.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="05_Personal/Growth-Timeline.md"] > .nav-file-title-content:not(:has(input))::after { content: "成长时间线"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/System-Map.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/System-Map.md"] > .nav-file-title-content:not(:has(input))::after { content: "系统地图"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books/Fiction"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books/Fiction"] > .nav-folder-title-content:not(:has(input))::after { content: "小说"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books/Nonfiction"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="03_Books/Nonfiction"] > .nav-folder-title-content:not(:has(input))::after { content: "非虚构"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media/Articles"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media/Articles"] > .nav-folder-title-content:not(:has(input))::after { content: "文章"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media/Videos"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="04_Media/Videos"] > .nav-folder-title-content:not(:has(input))::after { content: "视频"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Backups"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Backups"] > .nav-folder-title-content:not(:has(input))::after { content: "备份"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Index"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Index"] > .nav-folder-title-content:not(:has(input))::after { content: "索引"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Prompts"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Prompts"] > .nav-folder-title-content:not(:has(input))::after { content: "提示词"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Scripts"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Scripts"] > .nav-folder-title-content:not(:has(input))::after { content: "脚本"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Templates"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Templates"] > .nav-folder-title-content:not(:has(input))::after { content: "模板"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Workflows"] > .nav-folder-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-folder-title[data-path="09_System/Workflows"] > .nav-folder-title-content:not(:has(input))::after { content: "工作流"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Backups/README.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Backups/README.md"] > .nav-file-title-content:not(:has(input))::after { content: "备份说明"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Book.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Book.md"] > .nav-file-title-content:not(:has(input))::after { content: "书籍"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/CORE-CONTRACT.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/CORE-CONTRACT.md"] > .nav-file-title-content:not(:has(input))::after { content: "核心契约"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Daily.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Daily.md"] > .nav-file-title-content:not(:has(input))::after { content: "每日记录"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Inbox.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Inbox.md"] > .nav-file-title-content:not(:has(input))::after { content: "收件箱"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Personal-Model.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Personal-Model.md"] > .nav-file-title-content:not(:has(input))::after { content: "个人模型"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/ROUTER.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/ROUTER.md"] > .nav-file-title-content:not(:has(input))::after { content: "路由"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Thought.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Thought.md"] > .nav-file-title-content:not(:has(input))::after { content: "想法"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Video.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Workflows/Video.md"] > .nav-file-title-content:not(:has(input))::after { content: "视频"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Book-Fiction.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Book-Fiction.md"] > .nav-file-title-content:not(:has(input))::after { content: "书籍模板（小说）"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Book-Nonfiction.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Book-Nonfiction.md"] > .nav-file-title-content:not(:has(input))::after { content: "书籍模板（非虚构）"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Daily.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Daily.md"] > .nav-file-title-content:not(:has(input))::after { content: "每日记录模板"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Knowledge.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Knowledge.md"] > .nav-file-title-content:not(:has(input))::after { content: "知识模板"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Thought.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Thought.md"] > .nav-file-title-content:not(:has(input))::after { content: "想法模板"; font-size: var(--nav-item-size, var(--font-ui-small)); }
+
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Video.md"] > .nav-file-title-content:not(:has(input)) { font-size: 0; }
+.workspace-leaf-content[data-type="file-explorer"] .nav-file-title[data-path="09_System/Templates/Video.md"] > .nav-file-title-content:not(:has(input))::after { content: "视频模板"; font-size: var(--nav-item-size, var(--font-ui-small)); }

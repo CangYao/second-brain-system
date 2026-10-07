@@ -1,0 +1,51 @@
+[
+  {
+    "tool_name": "node",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "yt-dlp",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "ffmpeg",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "ffprobe",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "whisper-cli",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "whisper-model-small",
+    "canonical_path": "<USER_SELECTED_PATH>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "video-intake",
+    "canonical_path": "<VAULT_ROOT>/09_System/Scripts/Video-Intake.cjs",
+    "version": null,
+    "managed_by": "system",
+    "purpose": "OPTIONAL video dependency"
+  }
+]

@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "c35a17e5fd638b4576a622126b1fbf4b85f4f453dfc85002b173ffee2ede53a8"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "206989e2fea0e6881ab946b63f8afaba066b296a7903b0acbbf426d910290b57"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "7b181fa03482003891dd7e50b60627eaa5c7a0a849238611760c2d23b378d285"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "46bdaa3a20b037d474da8a68962714cba1fdb506829f6184bc71417e3274357b"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "dce6801dcbeacff285ae0718abd8d6aa95670ea262bb63f96fa1e98ecf3dc9b5"
+    },
+    {
+      "path": ".agents/skills/ai-reading/LICENSE",
+      "sha256": "06e2c6f34f62924e5b438097c3f7daac7789e6577b41a6019fce80967ddbc4ae"
+    },
+    {
+      "path": ".agents/skills/ai-reading/SKILL.md",
+      "sha256": "7af766878dbe59520312024610a0e8f8216873f99830b74e547f4ab9246da0bd"
+    },
+    {
+      "path": ".agents/skills/ai-reading/SOURCE.md",
+      "sha256": "39127be4bf1d44fb9f5b78663272950227929ada3294e8cd3ae0ea43195e8f4e"
+    },
+    {
+      "path": ".agents/skills/ai-reading/agents/openai.yaml",
+      "sha256": "6d59fcda19506802dfca46e1d6321895fe247a3bca3284b086995d118934829e"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/book-type-adaptation.md",
+      "sha256": "b1d8bfc69a140ddc5f180bd7d135347a8e8efae410f01c9bf8b9810a52fd9d25"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/content-templates.md",
+      "sha256": "88ec07c53cd5faa8085f68ea49358586cf3956381444fe5b10a7f663765b1660"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/evaluation-mode.md",
+      "sha256": "44afb0e12f9ef2c66548bbcb3960a365b3e957ac3b56f02c2cf46ae84a2e39e7"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/full-reading-report.md",
+      "sha256": "675b2af9522d8e69c3551953d50f4409e6ba5958600e5fe3281c21bc86fd2a99"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/perspective-selection.md",
+      "sha256": "fd81006dd73b4441be906cb373bceff0751cde99d1181d9140d7065e5c9ed708"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/reading-state.md",
+      "sha256": "877141482884ebb4241cbf2839547678ffae9fae7c7d91f0784f5ca995000600"
+    },
+    {
+      "path": ".agents/skills/ai-reading/references/source-and-copyright-policy.md",
+      "sha256": "fe7265c1e30f9033c10805b30c6cc46eaeeafc9292ad09d7dd39495512749483"
+    },
+    {
+      "path": ".agents/skills/codex-research/LICENSE",
+      "sha256": "e2136d69e69a249d483658efa852c0b479bd193f87e77f700fa4bc49ffef5c00"
+    },
+    {
+      "path": ".agents/skills/codex-research/SKILL.md",
+      "sha256": "c8ed49627b4fda0b081ee955c198e2e708b35ebc8c21d9666269bb8a65b0f8df"
+    },
+    {
+      "path": ".agents/skills/codex-research/SOURCE.md",
+      "sha256": "cda965e3809b732ab29e849e7270e673a354dc6b6f5bd4cd06069611ee8d97b0"
+    },
+    {
+      "path": ".agents/skills/codex-research/VERSION",
+      "sha256": "1725bfa6524c5265e7c171cf06568417d39b947fff49c242f03859479c82334b"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/academic-writing.md",
+      "sha256": "15b22e2b4672bc0befd7fc9002356e3e04c8c10cc68ad56704ac9243da48ff94"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/evidence-reasoning.md",
+      "sha256": "3654b4355e988016489da657e74893578744b0f39001108ff69ff59b4182c61e"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/fulltext-reading.md",
+      "sha256": "8a0353b500bca3cb2d7ba38f5f23a18bbcc1e07781eb2cf1e9f823bd22ce7336"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/interactive-workflow.md",
+      "sha256": "b34aa086aab89c88803f576e620feb4c78fc7864dd7fb2e8942e014da8f331f7"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/mcp-retrieval.md",
+      "sha256": "7a84e25554505e7589319f63efce5d02ddd28915e7ad9fd95285b01740fa99b6"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/research-state-and-delivery.md",
+      "sha256": "c329e860a9caaaf862dfe4ad0831c567f528548bbebb46eecab49d3dece590df"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/search-strategy.md",
+      "sha256": "43847a9dcaabd14f6bee86296add15825af1810a6c5a1b2c828eb48cfd06ae1d"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/source-safety.md",
+      "sha256": "d8765a6f0e9a9146e6ef085ff5ff23e73c7eaf8450f917caac7d43dedbd4bbc5"
+    },
+    {
+      "path": ".agents/skills/codex-research/references/synthesis-and-research-design.md",
+      "sha256": "3ff3d8631defdecda4a0dc51dd0264044e1625fd735d43d1d93af728bd066574"
+    },
+    {
+      "path": ".agents/skills/deep-reading/SKILL.md",
+      "sha256": "d63a935ff561f377330d2707aacb66771268e8ebf832a5da87039fd3524d3c4c"
+    },
+    {
+      "path": ".agents/skills/deep-reading/SOURCE.md",
+      "sha256": "117d1710df9223cffa39d6e0a191ed3aa52cf3364f34138873a38ebf7e409c69"
+    },
+    {
+      "path": ".agents/skills/deep-reading/references/coverage-and-verification.md",
+      "sha256": "6baabfe665ed2f8ec01e65188f3296de6b9f6b6684aa9d4343aba0390fe9a442"
+    },
+    {
+      "path": ".agents/skills/deep-reading/references/interpretation-and-argument.md",
+      "sha256": "f4b4e3de5059cd3570b0396639373d8b37e70dae2e4227b735214d7a44904886"
+    },
+    {
+      "path": ".agents/skills/deep-reading/references/purpose-aware-compression.md",
+      "sha256": "e58344735a398f02e32dc25549646576c3ab7378589fcbdfcad7608e14d7ed56"
+    },
+    {
+      "path": ".agents/skills/knowledge-synthesis/SKILL.md",
+      "sha256": "10ad14fcae25d7e6017de2388591514fc192fcc9738d92309e8da50f6a65b351"
+    },
+    {
+      "path": ".agents/skills/knowledge-synthesis/SOURCE.md",
+      "sha256": "cebec638bfc21e368911140bc879c0d00d2067b4ec795c91c7b7e63b39832639"
+    },
+    {
+      "path": ".agents/skills/knowledge-synthesis/references/comparability-and-relations.md",
+      "sha256": "fea5be843505bb2fb7418ede210b17794d280d55043bdce292c1ede7d6806d78"
+    },
+    {
+      "path": ".agents/skills/knowledge-synthesis/references/incremental-synthesis.md",
+      "sha256": "51d5e5fbb5bc376f1b200aa453ff0661dff8c18364d763594adc32cc5cd20f88"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/LICENSE",
+      "sha256": "64c64d48361edfe8610016441bf593256ea9b67f133b00f47c55aa29ee878567"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/SKILL.md",
+      "sha256": "7ad72e1f0a9081ed325e76b6402ad5de50a00e63e2341fd403a92f147234a007"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/SOURCE.md",
+      "sha256": "1649ca710bb75e66b6852f3c57023a4b4f840f71bd47cec37eac1bcd09cf3ccf"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/references/CALLOUTS.md",
+      "sha256": "9912ec2e3f8711f65b8ceb82cc19cbffc5e6f8ccf2ab627e18926c522c383d8b"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/references/EMBEDS.md",
+      "sha256": "63b6205507e28fb58cf200bc348a2b139e50ae739743e2e6316732148973cb7a"
+    },
+    {
+      "path": ".agents/skills/obsidian-markdown/references/PROPERTIES.md",
+      "sha256": "392953b5838c3ab3df135b5a914f100ae7b95e4501b6a2e5c8dc63da3ac7558b"
+    },
+    {
+      "path": ".obsidian/snippets/bilingual-display.css",
+      "sha256": "f461d8ea9e245a413d1b68943817c542cb25fbf337cb38dd661f81efa73813ad"
+    },
+    {
+      "path": "09_System/System-Map.md",
+      "sha256": "2654fd15dd684dff5cc644eaab778d1cd6649365c013c14a734645a318da877d"
+    },
+    {
+      "path": "09_System/Backups/README.md",
+      "sha256": "9469cfa2efb955992e0ab9827501ce4b58e6d9d87b45650d9b851ffd20076344"
+    },
+    {
+      "path": "09_System/Config/tool-registry.example.json",
+      "sha256": "233627f9d3fb49e95e73e76435bd4f7972ce91de0075a69a02618d3a33bd31ee"
+    },
+    {
+      "path": "09_System/Scripts/QuickAdd-Create.js",
+      "sha256": "1baec748081a049f9fb474a5844b0d47948950c0c9ffd5898dba5c2de1940601"
+    },
+    {
+      "path": "09_System/Scripts/Video-Intake-README.md",
+      "sha256": "936b3941efd3f4bd472decf6f84f6bef418a7f30fc1d4b50da50058aa0962799"
+    },
+    {
+      "path": "09_System/Scripts/Video-Intake.cjs",
+      "sha256": "471ab67dc192c65c07fe4b4502a6d4494e65121a940ce9b6505f43adc3af925b"
+    },
+    {
+      "path": "09_System/Scripts/Tests/Video-Intake.test.cjs",
+      "sha256": "5840399e42c270cad11eedde9e5b94a6dbe033c55123b53b29975da2502b04bd"
+    },
+    {
+      "path": "09_System/Templates/Book-Fiction.md",
+      "sha256": "a7252a1fe85e4b5462e148d23ecd0367344433c8b0dd76fb210ad3b5bca961ae"
+    },
+    {
+      "path": "09_System/Templates/Book-Nonfiction.md",
+      "sha256": "ee10a86009726a09fe03cdb105a88786ff8d0641e001f343c01fa7b2b367beb4"
+    },
+    {
+      "path": "09_System/Templates/Daily.md",
+      "sha256": "a50b8cc1363bf62dfcf658f713dc2365deec61c3ab6098fff6427b26fe4cf985"
+    },
+    {
+      "path": "09_System/Templates/Knowledge.md",
+      "sha256": "b076e9ddf9f00a9bee5f24096f0b43158fefeb4a7d588265c31ed445011abf02"
+    },
+    {
+      "path": "09_System/Templates/Thought.md",
+      "sha256": "f90bca81cdcdbb4216b4bf470782469fb0226d33d905ad75a69d84e3d4f4e694"
+    },
+    {
+      "path": "09_System/Templates/Video.md",
+      "sha256": "8da746771943324f01a6d27c854e71aca56e91f0fc84f56ec385ae82c0ce1947"
+    },
+    {
+      "path": "09_System/Workflows/Book.md",
+      "sha256": "74336767488d8ae86be2bdb7f8bfabaa7b8d11a8bf230e4c8e482231385f3c43"
+    },
+    {
+      "path": "09_System/Workflows/CORE-CONTRACT.md",
+      "sha256": "77b8fdea1fd6afab624229a032ba9988de05e5e247a208898a71c09fdd0b99e4"
+    },
+    {
+      "path": "09_System/Workflows/Daily.md",
+      "sha256": "550d18b0c2a8409c6ac8ccd98167c80ccbc9ae18d57ed5ed20c224717d2bd355"
+    },
+    {
+      "path": "09_System/Workflows/Inbox.md",
+      "sha256": "485670b8de2cbdea8bc4519a635f10ec1deedfc31c99d42562e80d11c91d441a"
+    },
+    {
+      "path": "09_System/Workflows/Personal-Model.md",
+      "sha256": "6d561e036b452c2eda75f0287e6e74e53653bd43cb515b364bd992d6bcd87525"
+    },
+    {
+      "path": "09_System/Workflows/ROUTER.md",
+      "sha256": "bae5da72fd2812a669392b92f07507e2371483efaf63309508c34cb0c71b4d5a"
+    },
+    {
+      "path": "09_System/Workflows/Thought.md",
+      "sha256": "9940bd86c881f3e4f3f6966045951992560bb765a9b63cac63e756b1e9669fa9"
+    },
+    {
+      "path": "09_System/Workflows/Video.md",
+      "sha256": "2beae0fe7de492e8f3ac7a80fd42dfed62d86f08ffe0aba7d78f48ffe6e4992c"
+    },
+    {
+      "path": "09_System/Scripts/Tests/QuickAdd-Create.test.cjs",
+      "sha256": "a01fa20d0c030b7caea4a82eb8387b4ace0e3f0b10993d563a96f1998517f50c"
+    }
+  ],
+  "bootstrap_files": [
+    {
+      "path": ".obsidian/app.json",
+      "sha256": "0746d0ceb7b63e376c51b844efe61623a1086ce688eec7ed6349704ecf7b9c19"
+    },
+    {
+      "path": ".obsidian/appearance.json",
+      "sha256": "a149df78ab4e946c1386d5dbf79a788da1eabcb27697eb489b3b6b2066a44ade"
+    },
+    {
+      "path": ".obsidian/community-plugins.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": ".obsidian/core-plugins.json",
+      "sha256": "8cc77f109fb14188ffeb242d5a6c41d7ad8f7840c025d0e2570a039b088149b4"
+    },
+    {
+      "path": ".obsidian/daily-notes.json",
+      "sha256": "0d929bc181017e6b60932704964f92858f6318e12f9e465ffa08733c0423835c"
+    },
+    {
+      "path": ".obsidian/templates.json",
+      "sha256": "8658581c336c497d941beb205d580c0793b830fc0386485766cc12fe4101b106"
+    },
+    {
+      "path": "00_Inbox/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "01_Knowledge/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "02_Topics/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "03_Books/Fiction/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "03_Books/Nonfiction/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "04_Media/Articles/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "04_Media/Videos/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "05_Personal/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "05_Personal/Decision-Framework.md",
+      "sha256": "7c11dc24ea6e25089f800b2c58b30aed8e6aa11f14c09342056e16c9467de681"
+    },
+    {
+      "path": "05_Personal/Growth-Timeline.md",
+      "sha256": "d808f5f07e34d1cbc4f9e05ef6bd4935e05ab73e1c7eb64996c53fc8aaecc613"
+    },
+    {
+      "path": "05_Personal/Preferences.md",
+      "sha256": "eedd9325b883f7013caf8f2ab61de7757cbc99211185de0b6878cf464ec24364"
+    },
+    {
+      "path": "05_Personal/Profile.md",
+      "sha256": "7fb5f8e7539dd6448597b9f4e2b191318863965d132ffba6b555c5f33a761df2"
+    },
+    {
+      "path": "06_Daily/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "07_Timeline/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "08_Projects/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "09_System/Backups/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "09_System/Index/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "09_System/Prompts/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

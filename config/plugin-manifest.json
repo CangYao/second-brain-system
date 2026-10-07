@@ -1,0 +1,65 @@
+[
+  {
+    "id": "dataview",
+    "repository": "https://github.com/blacksmithgu/obsidian-dataview",
+    "reference_version": "0.5.68",
+    "license": "MIT",
+    "classification": "OPTIONAL",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "templater-obsidian",
+    "repository": "https://github.com/SilentVoid13/Templater",
+    "reference_version": "2.25.1",
+    "license": "AGPL-3.0",
+    "classification": "OPTIONAL",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "quickadd",
+    "repository": "https://github.com/chhoumann/quickadd",
+    "reference_version": "2.29.0",
+    "license": "MIT",
+    "classification": "CORE_RECOMMENDED",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "omnisearch",
+    "repository": "https://github.com/scambier/obsidian-omnisearch",
+    "reference_version": "1.31.0",
+    "license": "GPL-3.0",
+    "classification": "CORE_RECOMMENDED",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "obsidian-tasks-plugin",
+    "repository": "https://github.com/obsidian-tasks-group/obsidian-tasks",
+    "reference_version": "8.4.0",
+    "license": "MIT",
+    "classification": "OPTIONAL",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "periodic-notes",
+    "repository": "https://github.com/liamcain/obsidian-periodic-notes",
+    "reference_version": "0.0.17",
+    "license": "MIT",
+    "classification": "OPTIONAL",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  },
+  {
+    "id": "mini-translator",
+    "repository": "https://github.com/GeorgeCao-001/mini-translator",
+    "reference_version": "1.0.2",
+    "license": "AGPL-3.0",
+    "classification": "OPTIONAL",
+    "bundled": false,
+    "install": "Official Obsidian Community Plugins UI; review permissions/settings"
+  }
+]

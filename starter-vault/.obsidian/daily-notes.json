@@ -1,0 +1,6 @@
+{
+  "folder": "06_Daily",
+  "format": "YYYY-MM-DD",
+  "template": "09_System/Templates/Daily.md",
+  "autorun": false
+}

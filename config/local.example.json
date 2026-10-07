@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "public_version": "0.1.0",
+  "vault_root": "<VAULT_ROOT>",
+  "tools_root": "<EXTERNAL_LOCAL_ROOT>",
+  "temp_root": "<EXTERNAL_LOCAL_ROOT>/Temp/VideoPipeline",
+  "cache_root": "<EXTERNAL_LOCAL_ROOT>/Cache/VideoPipeline",
+  "registry_file": "tool-registry.local.json",
+  "timezone": "SYSTEM",
+  "features": {
+    "video": false,
+    "translation": false,
+    "git_backup": false
+  }
+}

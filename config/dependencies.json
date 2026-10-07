@@ -1,0 +1,28 @@
+{
+  "core": {
+    "applications": [
+      "Obsidian",
+      "Codex (or equivalent project-Skill host)"
+    ],
+    "bootstrap": "PowerShell 5.1 or newer; Windows validated",
+    "git": "Recommended; local commits require initialized repo and user identity"
+  },
+  "optional": {
+    "video": {
+      "node_minimum": 24,
+      "subtitle": "yt-dlp for YouTube; public Bilibili subtitles use Node",
+      "asr": [
+        "ffmpeg",
+        "ffprobe",
+        "whisper-cli",
+        "whisper-model-small"
+      ]
+    },
+    "translation": "Mini Translator; manual install",
+    "git_backup": [
+      "Git",
+      "user-authorized private remote and authentication"
+    ]
+  },
+  "downloads": "No automatic download; no bundled program or model"
+}

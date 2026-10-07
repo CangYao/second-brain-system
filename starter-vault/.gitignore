@@ -1,0 +1,40 @@
+# Obsidian workspace and device state
+/.obsidian/workspace.json
+/.obsidian/workspace-mobile.json
+/.obsidian/cache/
+/.obsidian/.cache/
+/.trash/
+
+# Community plugin binaries; retain manifests and configuration
+/.obsidian/plugins/*/main.js
+/.obsidian/plugins/*/styles.css
+
+# Historical plugin backups and installation staging
+/09_System/Backups/ObsidianPlugins/
+
+# Windows and macOS generated files
+[Tt]humbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# Editor temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+~$*
+
+# Logs and regenerable runtime caches
+*.log
+__pycache__/
+*.pyc
+node_modules/
+
+# Local machine configuration and ephemeral reading history
+/09_System/Config/*.local.json
+/.obsidian/plugins/mini-translator/data.json
+/.obsidian/plugins/*/history*
+
+# Distribution-generated state and local paths; user-owned
+/09_System/Config/local.json
+/09_System/Config/system-state.json

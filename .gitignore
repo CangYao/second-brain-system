@@ -1,0 +1,56 @@
+# Local configuration and generated ownership/runtime state
+**/09_System/Config/local.json
+**/09_System/Config/tool-registry.local.json
+**/09_System/Config/system-state.json
+*.local.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+cookies.txt
+cookies-*.txt
+
+# User-owned runtime roots are never part of this distribution
+/Temp/
+/Cache/
+/tools/
+/models/
+/test-installs/
+/UpgradeBackups/
+node_modules/
+__pycache__/
+*.pyc
+*.log
+*.tmp
+
+# Obsidian machine/UI state and optional translation history
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/cache/
+**/.obsidian/plugins/*/data.json
+**/.obsidian/plugins/*/main.js
+**/.obsidian/plugins/*/styles.css
+**/.obsidian/plugins/*/history.json
+**/.trash/
+
+# Third-party binaries, model weights and acquired media are external
+*.exe
+*.dll
+*.gguf
+ggml-*.bin
+*.mp4
+*.mkv
+*.mov
+*.mp3
+*.wav
+*.flac
+*.zip
+*.7z
+
+# Operating-system/editor debris
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+*.swp
