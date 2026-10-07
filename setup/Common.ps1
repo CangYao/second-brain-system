@@ -46,7 +46,7 @@ function Get-SBHash([string]$File) {
 }
 function Test-SBSystemPath([string]$Relative) {
     if ($Relative -match '\\|(^|/)\.\.(/|$)|:|^/' -or [string]::IsNullOrWhiteSpace($Relative)) { return $false }
-    return $Relative -match '^(AGENTS\.md|LICENSE|THIRD-PARTY-NOTICES\.md|\.gitignore|\.gitattributes|\.agents/skills/[^/]+/.+|\.obsidian/snippets/[^/]+\.css|09_System/(Workflows|Templates|Scripts)/.+|09_System/System-Map\.md|09_System/Backups/README\.md|09_System/Config/tool-registry\.example\.json)$'
+    return $Relative -match '^(AGENTS\.md|LICENSE|THIRD-PARTY-NOTICES\.md|\.gitignore|\.gitattributes|\.agents/skills/[^/]+/.+|\.obsidian/snippets/[^/]+\.css|09_System/(Workflows|Templates|Scripts)/.+|09_System/System-Map\.md|09_System/Backups/README\.md|09_System/Config/(tool-registry\.example|QuickAdd-Starter\.quickadd)\.json)$'
 }
 function Get-SBManifest([string]$PackageRoot) {
     $manifest=Read-SBJson (Join-Path $PackageRoot 'system-manifest.json')
@@ -139,6 +139,18 @@ function Test-SBVault([string]$Vault,[switch]$NoDiscovery,$ToolPaths) {
         }
     }
     $ready=$null
+    try{
+        $pkg=Read-SBJson (Join-Path $Vault '09_System/Config/QuickAdd-Starter.quickadd.json')
+        $members=@('inbox','book','video','knowledge','thought','daily')
+        $valid=($pkg.schemaVersion -eq 1 -and @($pkg.choices).Count -eq 6 -and @($pkg.rootChoiceIds).Count -eq 6 -and @($pkg.assets).Count -eq 0)
+        foreach($entry in $pkg.choices){
+            $choice=$entry.choice;$commands=@($choice.macro.commands)
+            $member=([string]$commands[0].name -split '::')[-1]
+            $valid=$valid -and $choice.type -eq 'Macro' -and $choice.command -eq $true -and $choice.runOnStartup -eq $false -and $commands.Count -eq 1 -and $commands[0].type -eq 'UserScript' -and $commands[0].path -eq '09_System/Scripts/QuickAdd-Create.js' -and $member -in $members
+            $members=@($members|Where-Object {$_ -ne $member})
+        }
+        AddCheck 'QuickAdd starter package' ($valid -and $members.Count -eq 0) 'Six predefined command entries; official GUI import still required'
+    }catch{AddCheck 'QuickAdd starter package' $false $_.Exception.Message}
     try{
         $config=Read-SBJson (Join-Path $Vault '09_System/Config/local.json');Assert-SBConfig $Vault $config
         $registry=@(Read-SBJson (Join-Path $Vault '09_System/Config/tool-registry.local.json'))

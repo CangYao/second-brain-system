@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Fixed CONFIG_NOT_SHIPPED: ship and deploy a schemaVersion 1 QuickAdd Starter package with six command-enabled Macro entries referencing the existing script; use official one-time import after installing QuickAdd 2.31.0. No plugin binaries or data.json overwrite.
+- Add fresh-setup/package/member-reference/import-model regression and Core package validation; retain v0.1.1 runtime fix.
+- Replace manual six-Macro instructions with package import; clarify Chinese Restricted Mode button semantics. Actual Electron import and GUI actions remain PENDING_USER_RETEST.
+
 ## 0.1.1
 
 - Fixed: QuickAdd user scripts failing in real Obsidian runtime because of incompatible module loading. Use the official injected `params.obsidian` API instead of `require('obsidian')`; retain all six creation entries, duplicate prevention and timezone logic.

@@ -1,5 +1,10 @@
 # Release-candidate validation
 
+## v0.1.2 Starter configuration follow-up
+
+v0.1.1 did not ship any QuickAdd choices; business/API-double tests directly invoked exports and missed missing initialization. v0.1.2 ships the official six-choice package, checks fresh-setup deployment, command flags, members/paths and an installation/import discovery model. The model is not QuickAdd's full importer or Electron GUI: AUTOMATED_RUNTIME_TEST PARTIAL; REAL_GUI_QUICKADD_STATUS PENDING_USER_RETEST. Plugin binaries are not bundled, and data.json is only written by QuickAdd after reviewed GUI import.
+
+
 ## v0.1.1 QuickAdd hotfix scope
 
 Real Obsidian 1.14.4 evidence showed v0.1.0 QuickAdd failed before invocation at `require('obsidian')`. The earlier API double made that module resolve and missed the failure; its historic PASS did not establish GUI compatibility. The script now uses official `params.obsidian` injection, with loader tests denying all module resolution plus six-entry creation/duplicate/timezone regression. Fresh setup, Core, privacy and updater conflict checks are repeated for the patch.

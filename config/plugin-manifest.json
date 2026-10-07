@@ -20,7 +20,7 @@
   {
     "id": "quickadd",
     "repository": "https://github.com/chhoumann/quickadd",
-    "reference_version": "2.29.0",
+    "reference_version": "2.31.0",
     "license": "MIT",
     "classification": "CORE_RECOMMENDED",
     "bundled": false,

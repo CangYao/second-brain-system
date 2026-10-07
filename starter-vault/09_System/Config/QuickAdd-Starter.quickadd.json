@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "quickAddVersion": "2.31.0",
+  "createdAt": "2026-10-07T16:28:51.436Z",
+  "rootChoiceIds": [
+    "sb-starter-inbox",
+    "sb-starter-book",
+    "sb-starter-video",
+    "sb-starter-knowledge",
+    "sb-starter-thought",
+    "sb-starter-daily"
+  ],
+  "choices": [
+    {
+      "choice": {
+        "id": "sb-starter-inbox",
+        "name": "新增 Inbox",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-inbox-macro",
+          "name": "新增 Inbox",
+          "commands": [
+            {
+              "id": "sb-starter-inbox-script",
+              "name": "QuickAdd-Create::inbox",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "sb-starter-book",
+        "name": "新增书籍",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-book-macro",
+          "name": "新增书籍",
+          "commands": [
+            {
+              "id": "sb-starter-book-script",
+              "name": "QuickAdd-Create::book",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "sb-starter-video",
+        "name": "新增视频",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-video-macro",
+          "name": "新增视频",
+          "commands": [
+            {
+              "id": "sb-starter-video-script",
+              "name": "QuickAdd-Create::video",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "sb-starter-knowledge",
+        "name": "新增知识",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-knowledge-macro",
+          "name": "新增知识",
+          "commands": [
+            {
+              "id": "sb-starter-knowledge-script",
+              "name": "QuickAdd-Create::knowledge",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "sb-starter-thought",
+        "name": "新增想法",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-thought-macro",
+          "name": "新增想法",
+          "commands": [
+            {
+              "id": "sb-starter-thought-script",
+              "name": "QuickAdd-Create::thought",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    },
+    {
+      "choice": {
+        "id": "sb-starter-daily",
+        "name": "新增每日记录",
+        "type": "Macro",
+        "command": true,
+        "runOnStartup": false,
+        "macro": {
+          "id": "sb-starter-daily-macro",
+          "name": "新增每日记录",
+          "commands": [
+            {
+              "id": "sb-starter-daily-script",
+              "name": "QuickAdd-Create::daily",
+              "type": "UserScript",
+              "path": "09_System/Scripts/QuickAdd-Create.js",
+              "settings": {}
+            }
+          ]
+        }
+      },
+      "pathHint": [],
+      "parentChoiceId": null
+    }
+  ],
+  "assets": []
+}

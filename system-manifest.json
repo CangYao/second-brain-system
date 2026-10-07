@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.1",
+  "public_version": "0.1.2",
   "files": [
     {
       "path": ".gitattributes",
@@ -273,6 +273,14 @@
     {
       "path": "09_System/Scripts/Tests/QuickAdd-Runtime.test.cjs",
       "sha256": "e9e1017bc26c4b684574aa2df3e5e5daa17222a65eaf962a35114e55039b03a6"
+    },
+    {
+      "path": "09_System/Config/QuickAdd-Starter.quickadd.json",
+      "sha256": "df7a464f9b00571f40562dc846fa6a4a9b61065e08391b13dddc5ef27edd1a41"
+    },
+    {
+      "path": "09_System/Scripts/Tests/QuickAdd-Starter.test.cjs",
+      "sha256": "a9b48d5a32b6708da1d80d2089c4a3d0003a0a396db2ce61546fe6125d4c65aa"
     }
   ],
   "bootstrap_files": [
