@@ -1,6 +1,5 @@
 // Manual QuickAdd entries. No network, shell commands, deletion, or existing-note writes.
 // Templates retain their Obsidian-native syntax. Content review follows AGENTS/ROUTER.
-const { Notice, parseYaml } = require('obsidian');
 const kinds = {
   fiction: { template: 'Book-Fiction', folder: '03_Books/Fiction', scope: '03_Books', prefix: 'book' },
   nonfiction: { template: 'Book-Nonfiction', folder: '03_Books/Nonfiction', scope: '03_Books', prefix: 'book' },
@@ -21,8 +20,13 @@ async function chooseKind(api, bookOnly = false) {
 }
 
 async function create(params, kind, inbox = false) {
-  const { app, quickAddApi: api } = params;
+  const { app, quickAddApi: api, obsidian } = params;
   if (!kind || !kinds[kind]) return;
+  // QuickAdd supplies the Obsidian API at invocation, not via Node module resolution.
+  if (typeof obsidian?.Notice !== 'function' || typeof obsidian?.parseYaml !== 'function') {
+    throw new Error('QuickAdd runtime must provide params.obsidian.Notice and parseYaml; no file was created.');
+  }
+  const { Notice, parseYaml } = obsidian;
   const config = kinds[kind];
   // System timezone by default; explicit IANA override comes from user-local config.
   let timezone = 'SYSTEM';

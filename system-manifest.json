@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "files": [
     {
       "path": ".gitattributes",
@@ -196,7 +196,7 @@
     },
     {
       "path": "09_System/Scripts/QuickAdd-Create.js",
-      "sha256": "1baec748081a049f9fb474a5844b0d47948950c0c9ffd5898dba5c2de1940601"
+      "sha256": "0cc6fe38b47ee5bcb8a52a908a8bedd89530dee2357a97209c63b66676b546d3"
     },
     {
       "path": "09_System/Scripts/Video-Intake-README.md",
@@ -268,7 +268,11 @@
     },
     {
       "path": "09_System/Scripts/Tests/QuickAdd-Create.test.cjs",
-      "sha256": "a01fa20d0c030b7caea4a82eb8387b4ace0e3f0b10993d563a96f1998517f50c"
+      "sha256": "030a1da5c664b4a7753926279e6e34b25f76e1aefcdc944406df52b74c43f223"
+    },
+    {
+      "path": "09_System/Scripts/Tests/QuickAdd-Runtime.test.cjs",
+      "sha256": "e9e1017bc26c4b684574aa2df3e5e5daa17222a65eaf962a35114e55039b03a6"
     }
   ],
   "bootstrap_files": [

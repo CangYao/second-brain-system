@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1
+
+- Fixed: QuickAdd user scripts failing in real Obsidian runtime because of incompatible module loading. Use the official injected `params.obsidian` API instead of `require('obsidian')`; retain all six creation entries, duplicate prevention and timezone logic.
+- Added loader/invocation regression with an unresolvable `obsidian` module; API-double smoke now uses the real parameter boundary rather than making that require succeed.
+- Improved first-run instructions: command working directory, opening the generated Vault, Restricted Mode/community plugins, CSS snippet and QuickAdd Macro/member setup.
+- Real GUI re-validation is still pending until the user confirms the repaired QuickAdd action. Automated runtime checks are contract-level, not an Electron GUI simulation.
+
 ## 0.1.0
 
 Based on functional baseline: Private Second Brain v1.2.0.

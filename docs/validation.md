@@ -1,5 +1,14 @@
 # Release-candidate validation
 
+## v0.1.1 QuickAdd hotfix scope
+
+Real Obsidian 1.14.4 evidence showed v0.1.0 QuickAdd failed before invocation at `require('obsidian')`. The earlier API double made that module resolve and missed the failure; its historic PASS did not establish GUI compatibility. The script now uses official `params.obsidian` injection, with loader tests denying all module resolution plus six-entry creation/duplicate/timezone regression. Fresh setup, Core, privacy and updater conflict checks are repeated for the patch.
+
+AUTOMATED_RUNTIME_TEST: PARTIAL (loader/invocation contract checks pass; actual Electron GUI not automated).
+REAL_GUI_QUICKADD_STATUS: PENDING_USER_RETEST.
+
+## Historical v0.1.0 packaging tests
+
 Windows PowerShell 5.1 and current PowerShell 7; Node 24 for optional video/API-double tests. Isolated clean destinations including Unicode/spaces; no software/plugin installation, no real network/media/ASR repetition.
 
 | Test | Result | Evidence / scope |

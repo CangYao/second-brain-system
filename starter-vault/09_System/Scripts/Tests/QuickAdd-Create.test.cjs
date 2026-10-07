@@ -17,8 +17,8 @@ test('SAMPLE routes create valid identities, preserve duplicates and respect sys
  const FixedDate=class extends Date{constructor(...args){super(...(args.length?args:['2026-01-01T00:30:00Z']));}};
  const intl={DateTimeFormat:function(locale,options){dateOptions.push({...options});return new Intl.DateTimeFormat(locale,options);}};
  const module={exports:{}};
- vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../QuickAdd-Create.js'),'utf8'),{module,require:n=>{if(n!=='obsidian')throw Error('Unexpected dependency');return{Notice:class{},parseYaml};},Intl:intl,Date:FixedDate,URL,console});
- const call=async(member,title,source='https://example.com/demo/'+member)=>{let count=0;await module.exports[member]({app,quickAddApi:{suggester:async()=>member==='book'?'nonfiction':'knowledge',inputPrompt:async()=>++count===1?title:source}});};
+ vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../QuickAdd-Create.js'),'utf8'),{module,exports:module.exports,require:n=>{throw Error('Unavailable User Script dependency: '+n);},Intl:intl,Date:FixedDate,URL,console});
+ const call=async(member,title,source='https://example.com/demo/'+member)=>{let count=0;await module.exports[member]({app,obsidian:{Notice:class{},parseYaml},variables:{},quickAddApi:{suggester:async()=>member==='book'?'nonfiction':'knowledge',inputPrompt:async()=>++count===1?title:source}});};
  const before=notes().length;
  for(const [member,title]of [['inbox','SAMPLE Inbox'],['knowledge','SAMPLE Knowledge'],['book','SAMPLE Book'],['thought','SAMPLE Thought'],['video','SAMPLE Video']])await call(member,title);
  await call('daily');

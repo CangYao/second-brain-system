@@ -1,5 +1,5 @@
 {
-  "public_version": "0.1.0",
+  "public_version": "0.1.1",
   "source_functional_baseline": "private-v1.2.0",
   "config_schema": 1,
   "platform_validation": "Windows; clean-environment simulation",
