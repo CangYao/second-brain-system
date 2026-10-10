@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+- Correct repository responsibilities: the primary repository preserves personal knowledge and all system iterations for recovery; the reusable distribution derives framework and functionality from it with personal data and private machine configuration removed.
+- System changes must be saved to the primary repository before publishing the reusable subset. No history rewrite, background sync or runtime changes.
+
 ## 0.1.3
 
 - Add single-video URL/BV intake defaults, scope exceptions, transcript failure handling, source-grounded analysis and coverage reporting.

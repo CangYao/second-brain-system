@@ -1,6 +1,6 @@
 # Second Brain System Map
 
-Public distribution v0.1.3；核心规则来源功能基线 private-v1.2.0，无私人安装记录。
+Public distribution v0.1.4；核心规则来源功能基线 private-v1.2.0，无私人安装记录。
 
 ## Purpose and responsibilities
 
@@ -33,3 +33,7 @@ DISCOVER → REUSE → bounded DESIGN → authorized CHECKPOINT → IMPLEMENT �
 单条视频链接／BV 号默认分析并保存，例外与对象边界维护在 ROUTER；正文获取、证据、时间定位、文字与画面覆盖及失败处理维护在 Video Workflow。字幕与 ASR 仍依赖用户配置，不承诺任意平台可用。
 
 跨材料的正文质量要求统一维护在 [[09_System/Workflows/CORE-CONTRACT#内容厚度、深入分析与有依据的提炼]]：具体材料充分展开，解释为什么，再形成有依据且保留边界的深层理解；完成核验检查实际正文。各 Workflow 沿用共享契约，不新增 Skill、模板类型或字段，不批量改写旧笔记。
+
+## Primary repository and reusable distribution
+
+主仓库保存用户资料及每次系统迭代的完整已跟踪版本与历史，用于恢复和回退。发行仓库从主仓库提取基本框架与功能，排除个人资料、模型实际内容、机器私有配置、凭据及私有 Git 历史。系统更新先进入主仓库，再同步可分发部分到发行仓库；二者不是互斥的保存目标。授权和发布核验遵循 CORE-CONTRACT，不增加后台同步。

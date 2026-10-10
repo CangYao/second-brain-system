@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.3",
+  "public_version": "0.1.4",
   "files": [
     {
       "path": ".gitattributes",
@@ -184,7 +184,7 @@
     },
     {
       "path": "09_System/System-Map.md",
-      "sha256": "cfe6026b135f7f6cd9c9dbf72e02ae433702147499dca955d6b5a4ececb51fbd"
+      "sha256": "1b9181c910572efa013e1ad09f5c9a537b90d115e7e8d3c71c9fb4e32be1c2a9"
     },
     {
       "path": "09_System/Backups/README.md",
@@ -240,7 +240,7 @@
     },
     {
       "path": "09_System/Workflows/CORE-CONTRACT.md",
-      "sha256": "b7dfea6a2540bd997e4717d44c87d1b323cd7676f7a1d5c7bb654fc37a1efe12"
+      "sha256": "8ed331fc539aa086278c2629db5fc0c5499783d1135cdfc3f7e481ed922217e7"
     },
     {
       "path": "09_System/Workflows/Daily.md",
