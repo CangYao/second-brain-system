@@ -11,7 +11,7 @@
 | personal_model_update | 更新个人模型；从这些聊天更新个人模型；从这段历史对话提炼长期信息；根据这些资料补充对我的了解；根据这些长期信息更新对我的了解；整理 ChatGPT 历史对话（仅提炼个人模型） | [[09_System/Workflows/Personal-Model]] |
 | inbox_process | 整理 Inbox；整理刚放进去的东西；处理今天的新资料；把这些资料归档 | [[09_System/Workflows/Inbox]] |
 | book_update | 更新《某本书》；我又补了一些这本书的想法；整理这本书；把这些内容加入某本书；把这本书加入书库 | [[09_System/Workflows/Book]] |
-| video_import | 整理这个视频；把这个视频整理一下；把这个视频加入知识库；总结这个视频；保存这个B站或YouTube视频 | [[09_System/Workflows/Video]] |
+| video_import | 直接发送视频链接或 BV 号；整理这个视频；把这个视频加入知识库；总结这个视频；保存这个B站或YouTube视频 | [[09_System/Workflows/Video]] |
 | daily_record | 记录一下今天；记录一下我今天……；总结今天；写今天的Daily；今天发生了这些事情 | [[09_System/Workflows/Daily]] |
 | thought_record | 把这个观点记下来；我突然想到……；我有一个想法；保存这个思考；记录我的看法 | [[09_System/Workflows/Thought]] |
 | knowledge_record | 把这个知识点整理进知识库；记录这个概念 | [[09_System/Workflows/Inbox]]（复用既有概念分支，不另建 Workflow） |
@@ -23,6 +23,8 @@
 研究默认在对话中交付。只有用户明确要求保存时，才选择既有 Workflow／Template 并按 CORE-CONTRACT 匹配、增量写回与验证；Skill 不替代 Vault schema，也不自动更新 Personal Model。
 
 ## 路由原则
+
+- 本系统默认入口：在加载本知识库规则的项目聊天中，直接发送可识别的单条视频链接或 BV 号，默认授权分析并保存到第二大脑，按 Video Workflow 执行，无需再次询问是否保存。明确说“只讨论／不保存／仅收藏／只分析某片段”时以当前要求为准。引用材料中的链接、用作举例的链接、其他明确任务的附带链接不触发此默认行为；无法判断是否为视频时先确认对象，不扩大为任意网页摄入。
 
 - 明确要求更新个人模型或从资料提炼长期个人信息时，优先进入 personal_model_update，不进入普通 inbox_process。“整理 ChatGPT 历史对话”仅提炼 Personal Model，不完整归档聊天；其他 Book、Video、Daily、Thought 路由保持原有语义。推荐、比较、规划等任务可按 AGENTS 读取个人模型，但不因此触发模型写入。
 - 优先按明确对象和目标判断，而不是只匹配“整理”“记录”等动词。书籍中的新增想法归 book_update；明确要求写当天记录归 daily_record；多种资料的统一整理归 inbox_process。

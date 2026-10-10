@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+- Add single-video URL/BV intake defaults, scope exceptions, transcript failure handling, source-grounded analysis and coverage reporting.
+- Improve the Video template and shared quality contract: concrete evidence/events, deeper explanation and grounded synthesis; verify prose rather than headings or length.
+- Document explicit ongoing remote authorization and split content/system publishing; preserve portable configuration and exclude private data/history. No background sync or new dependencies.
+- Validation covers package integrity and fresh installation checks; new-platform, GUI and per-video coverage remain task-specific.
+
 ## 0.1.2
 
 - Fixed CONFIG_NOT_SHIPPED: ship and deploy a schemaVersion 1 QuickAdd Starter package with six command-enabled Macro entries referencing the existing script; use official one-time import after installing QuickAdd 2.31.0. No plugin binaries or data.json overwrite.

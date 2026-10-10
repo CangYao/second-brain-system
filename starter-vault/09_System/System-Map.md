@@ -1,6 +1,6 @@
 # Second Brain System Map
 
-Public distribution v0.1.0；核心规则来源功能基线 private-v1.2.0，无私人安装记录。
+Public distribution v0.1.3；核心规则来源功能基线 private-v1.2.0，无私人安装记录。
 
 ## Purpose and responsibilities
 
@@ -26,4 +26,10 @@ CORE系统安装/自检与离线契约可验证；真实笔记质量仍按任务
 
 ## Changes and updates
 
-DISCOVER → REUSE → bounded DESIGN → authorized CHECKPOINT → IMPLEMENT → VERIFY → CLEANUP → scoped local COMMIT。未初始化Git报告NOT_CONFIGURED，不为提交改业务内容；Remote push explicit request only。系统升级预览/hash/冲突检查后，只更新未定制的系统文件，保留USER_DATA/LOCAL_CONFIG，不自动删除旧文件。
+DISCOVER → REUSE → bounded DESIGN → authorized CHECKPOINT → IMPLEMENT → VERIFY → CLEANUP → scoped local COMMIT。未初始化Git报告NOT_CONFIGURED，不为提交改业务内容；Remote push 需用户明确授权；长期授权的仓库与范围记录在用户自己的 Vault，按 CORE-CONTRACT 执行。系统升级预览/hash/冲突检查后，只更新未定制的系统文件，保留USER_DATA/LOCAL_CONFIG，不自动删除旧文件。
+
+## Video entry and analysis quality update
+
+单条视频链接／BV 号默认分析并保存，例外与对象边界维护在 ROUTER；正文获取、证据、时间定位、文字与画面覆盖及失败处理维护在 Video Workflow。字幕与 ASR 仍依赖用户配置，不承诺任意平台可用。
+
+跨材料的正文质量要求统一维护在 [[09_System/Workflows/CORE-CONTRACT#内容厚度、深入分析与有依据的提炼]]：具体材料充分展开，解释为什么，再形成有依据且保留边界的深层理解；完成核验检查实际正文。各 Workflow 沿用共享契约，不新增 Skill、模板类型或字段，不批量改写旧笔记。

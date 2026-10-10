@@ -1,5 +1,7 @@
 # 可选 Video Intelligence
 
+在加载本 Vault 规则的 Codex 项目聊天中，直接发送单条视频链接或 BV 号，默认分析并保存；可明确指定只讨论、仅收藏或片段范围。引用材料中的附带链接不自动触发。依赖未配置或未取得正文时说明缺口，不生成空分析；这不是后台监听。分析记录具体依据、推理与边界，并标明字幕／ASR及画面覆盖。
+
 Node 最低 24，建议当前受支持的 24.x/更新版本；不捆绑 runtime。基本路径保持：URL/本地文件 → provider → 官方字幕优先 → 音频 → ffmpeg/ffprobe → whisper.cpp → normalized transcript → Workflow/deep-reading → 中文可追溯笔记。平台规则可能改变，不保证所有视频可取，不绕访问限制。
 
 ## 配置自己的工具

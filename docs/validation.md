@@ -1,5 +1,9 @@
 # Release-candidate validation
 
+## v0.1.3 Workflow and quality update
+
+Package integrity checks and a fresh Windows PowerShell 5.1 installation passed with CORE_READY=true. Shared analysis rules, Video routing/template, coverage/failure handling and explicit remote authorization were reviewed as scoped text changes. No acquisition/runtime logic or dependency changed. GUI and new-platform video behavior were not retested; optional features remain disabled until configured.
+
 ## v0.1.2 Starter configuration follow-up
 
 v0.1.1 did not ship any QuickAdd choices; business/API-double tests directly invoked exports and missed missing initialization. v0.1.2 ships the official six-choice package, checks fresh-setup deployment, command flags, members/paths and an installation/import discovery model. The model is not QuickAdd's full importer or Electron GUI: AUTOMATED_RUNTIME_TEST PARTIAL; REAL_GUI_QUICKADD_STATUS PENDING_USER_RETEST. Plugin binaries are not bundled, and data.json is only written by QuickAdd after reviewed GUI import.

@@ -2,14 +2,14 @@
 
 以 Markdown 为知识资产、Obsidian 为主要阅读编辑界面、Codex 为受控 AI 执行层的个人知识系统。适合希望通过自然语言整理知识、阅读、思想和每日记录，同时保留原始来源与可恢复历史的用户。
 
-**Public v0.1.2** 包含 QuickAdd runtime 修复与官方六入口配置包；核心功能源自已经验证的 private-v1.2.0 基线。版本号不表示核心知识规则尚未建立，也不保证当前机器已完成所有 GUI/外部平台测试。v0.1.0 的真实 QuickAdd GUI 加载失败已修复模块依赖，自动回归通过；修复后的真实 GUI 仍待用户复验。
+**Public v0.1.3** 新增视频链接默认分析保存及跨材料的深入分析规则，并保留 QuickAdd runtime 修复与官方六入口配置包；核心功能源自已经验证的 private-v1.2.0 基线。版本号不表示核心知识规则尚未建立，也不保证当前机器已完成所有 GUI/外部平台测试。v0.1.0 的真实 QuickAdd GUI 加载失败已修复模块依赖，自动回归通过；修复后的真实 GUI 仍待用户复验。
 
 ## 核心能力
 
 - Inbox / Book / Knowledge / Thought / Daily / Personal Model 工作流；局部匹配、增量更新、避免重复。
 - 教学阅读、单源深读、外部研究、多源综合、Obsidian Markdown 五个按需 Skill；DEEP ≠ BROAD，原文证据、解释和综合分开。
 - 中文主表达、aliases与概念对齐；原文、译文、AI解释区分，不复制两套知识对象。
-- YAML、来源、稳定ID与内部链接；验证后的 scoped local commit，有Git才提交，永不默认push。
+- YAML、来源、稳定ID与内部链接；验证后的 scoped local commit，有Git才提交，远端发布遵循用户明确授权。
 - 空 Personal Model 渐进建立，explicit/inference/change/unknown；普通推荐不反向学习。
 
 架构：User → AGENTS → ROUTER → Workflow → 必要 Skill/Tool → Vault → Verify → scoped local commit。完整运行代码只保留在 starter-vault 一份。
