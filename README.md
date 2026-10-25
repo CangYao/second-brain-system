@@ -2,7 +2,7 @@
 
 以 Markdown 为知识资产、Obsidian 为主要阅读编辑界面、Codex 为受控 AI 执行层的个人知识系统。适合希望通过自然语言整理知识、阅读、思想和每日记录，同时保留原始来源与可恢复历史的用户。
 
-**Public v0.1.4** 明确主仓库保存资料及完整系统迭代、发行版移除个人数据的职责；包含视频链接默认分析保存及跨材料的深入分析规则，并保留 QuickAdd runtime 修复与官方六入口配置包；核心功能源自已经验证的 private-v1.2.0 基线。版本号不表示核心知识规则尚未建立，也不保证当前机器已完成所有 GUI/外部平台测试。v0.1.0 的真实 QuickAdd GUI 加载失败已修复模块依赖，自动回归通过；修复后的真实 GUI 仍待用户复验。
+**Public v0.2.0** 在既有可移植框架上新增可选任务/经验闭环、X 文章归档、Bases/Canvas 两个 Skill、学习成果示例及外部问库协作约定。个人资料、运行历史、机器私有配置和 Git 历史均不分发。核心 Markdown 安装仍独立于可选依赖；新宿主 GUI、外部平台与真实学习质量需要部署者自行验证。
 
 ## 核心能力
 
@@ -62,3 +62,10 @@ Windows-first 已做安装模拟与离线验证；没有宣称 macOS/Linux/mobil
 自有代码 Copyright (c) 2026 CangYao，MIT，见[LICENSE](LICENSE)。第三方Skill保留自己的许可与固定来源，见[THIRD-PARTY-NOTICES](THIRD-PARTY-NOTICES.md)。不把整个系统误称为某第三方项目；未捆绑外部工具/模型/插件。
 
 QuickAdd 插件程序不捆绑。安装并启用 QuickAdd 2.31.0 后，按安装文档导入生成 Vault 内的 `09_System/Config/QuickAdd-Starter.quickadd.json`，六入口一次出现，无需手工创建 Macro。“开启安全/受限模式”会禁用社区插件；使用插件时应关闭受限模式。
+
+## v0.2 usage additions
+
+- Optional Evolution: starter-vault/09_System/Scripts/Evolution/README.md; explicit empty initialization, not background learning.
+- X archive: starter-vault/09_System/Scripts/X-Archive/README.md; pinned MIT dependency, no captured data bundled.
+- [Learning workflow](docs/learning-workflow.md) and optional empty examples/Learning-SAMPLE; Bases/Canvas Skills bring the project total to seven.
+- [External Vault Q&A](docs/vault-ask.md); user-supplied tools and database policy, no automatic migration.

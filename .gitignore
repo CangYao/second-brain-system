@@ -54,3 +54,7 @@ desktop.ini
 .DS_Store
 *~
 *.swp
+
+# Never export user governance state or browser inspection artifacts
+**/09_System/Evolution/.records.json
+**/.playwright-cli/

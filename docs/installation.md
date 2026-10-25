@@ -52,3 +52,7 @@ setup 不安装 QuickAdd；它部署官方可导入 Starter 配置包，不直�
 中文界面若按钮写着“开启安全/受限模式”，点击“开启”会**进入受限模式并禁用社区插件**，不是开启社区插件。使用 QuickAdd 时应处于受限模式关闭状态，并确认插件已 Enable。插件程序不随包捆绑；QuickAdd 是本六入口的必要插件，其他推荐/可选插件无需为了此测试全部安装。
 
 配置包采用 [QuickAdd 官方 Packages](https://quickadd.obsidian.guide/docs/Choices/Packages/) schemaVersion 1，按 QuickAdd 2.31.0 固定源码核验（4a2679afd5b781f5f6968ce5478c921a7950108e）。插件使用 Obsidian loadData/saveData 管理自己的 data.json；公开系统不抢占其状态或假定插件安装前预置文件一定保留。
+
+## v0.2 可选经验闭环
+
+核心安装仍支持 PowerShell 5.1+，不强制 Python。要启用经验闭环，使用 PowerShell 7.5+，在 ToolPathsFile 提供已安装 Python 3.12+ 的 python 路径；setup 会登记它。安装或升级后，用户明确启用时按 Vault 中 `09_System/Scripts/Evolution/README.md` 运行一次 -Initialize。已有账本拒绝覆盖，不导入原作者历史。缺少配置时普通知识工作继续，经验功能报告 NOT_CONFIGURED。

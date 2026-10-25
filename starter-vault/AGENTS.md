@@ -2,6 +2,12 @@
 
 本文件适用于知识库根目录及所有子目录。AI 在本知识库执行任务时应遵循以下规则，并以用户的明确要求为准。
 
+## Windows session bootstrap
+
+- Shell calls use `login: false`; explicitly launched PowerShell uses `-NoProfile -NonInteractive`. Read UTF-8 rules through native unpiped `rg -n --encoding utf-8 "^" <explicit-file>` when available. Do not change console encoding, global settings or shell restrictions to read files.
+- Apply the current read scope before searching. External memory indexes, session logs, other Temp runs and adjacent user directories are not implicit sources; resolving registry dependencies does not authorize scanning their neighbors.
+- When the optional Evolution feature has been configured and explicitly initialized, experience access goes only through `09_System/Scripts/Evolution/Invoke-Evolution.ps1`, including read-only tasks. Do not replace it with direct ledger reads. If not configured, report NOT_CONFIGURED and continue ordinary knowledge work without inventing experience or installing dependencies.
+
 ## 1. 目标与数据基础
 
 “第二大脑”是一个长期个人知识系统，用于记录、整理和关联阅读、视频、知识、思想、个人经历、兴趣、观点变化和项目，并为未来知识图谱、SQLite 或其他结构化索引、Web App、Android App 及可能的 iOS App 提供结构化数据基础。
@@ -133,6 +139,7 @@ AI inference 不得自动视为事实，也不得写成用户的确定观点。�
 | `sources` | 原始 URL、来源描述或已加引号的 Wikilink 字符串列表 |
 | `relations` | 已加引号的 Wikilink 字符串列表；为未来知识图谱的 typed relations 保留扩展空间 |
 | `book_category` | 书籍适用：`Fiction` 或 `Nonfiction` |
+| `status` | 仅 `type: book` 适用的阅读状态：`planned`、`reading`、`paused` 或 `completed`（裸小写英文）；阅读细节写正文。Inbox V1 导入副本的 `status: imported` 属于另一历史契约，保持不变 |
 | `personal_status` | 性质一致的个人内容适用：`fact`、`preference` 或 `inference` |
 | `confidence` | 推测适用：0–1 数值 |
 | `evidence` | 推测适用：依据字符串列表 |

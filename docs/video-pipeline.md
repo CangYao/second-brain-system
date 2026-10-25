@@ -26,3 +26,11 @@ node <VAULT_ROOT>/09_System/Scripts/Video-Intake.cjs --input <URL_OR_LOCAL_MEDIA
 Temp 与 Cache 必须和 Vault 互不包含，默认 <external>/Temp/VideoPipeline 与 <external>/Cache/VideoPipeline。生成 run 有 ownership marker；cleanup 只删除自己管理的确切 run，保留原媒体。手工提供认证材料不保存到正式笔记，任务临时认证副本无论成功/失败均清理。
 
 本发行验证配置、依赖解析和离线回归；源功能基线经历真实平台验证，但本次没有再次网络下载/ASR。需要首次实际平台测试时，小范围授权并检验 transcript/coverage/笔记；工具存在不能证明内容成功。
+
+## Optional anonymous Douyin provider (v0.2)
+
+Video-Intake 1.1.0-public.1 接受抖音标准链接、短链或分享文案中的第一个抖音链接。由用户独立审查并在本机 registry 登记 douyin-python 与 douyin-provider；ToolPathsFile 可显式提供这两个已存在路径。Provider 不随包分发，不自动安装浏览器或读取用户浏览器配置。
+
+调用协议：由登记的 Python 执行 Provider，参数 --input URL --max-seconds N；元信息模式加 --metadata-only，否则传 --output-dir <当前run/media>。成功返回 JSON，含 url/aweme_id/title/desc/author/published_date/duration_seconds/provider，以及下载时的 media_file。媒体必须位于本次 run/media 内，随后走已有 ASR 和时长核验。错误 JSON 的 code 传播为 DOUYIN_<CODE>，不得在登录、验证码或限流后绕过限制。调用端不传登录、Cookie 文件或浏览器配置，不回退到其他抓取器。
+
+--no-asr 在该平台只取得 metadata，不能冒充字幕成功。公开版只验离线适配器契约；实际匿名获取及服务可用性需部署者按自己的 Provider 再验证。

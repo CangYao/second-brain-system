@@ -1,5 +1,16 @@
 # Release-candidate validation
 
+## v0.2.0 release validation (2026-10-25)
+
+- Portable Evolution behavior and formal wrapper: 20/20 passed, including scoped approvals/history, Unicode and restricted/OEM transport. Fixtures only; no original governance data exported.
+- Fresh installation, explicit empty initialization, external result roots, optional Python failure, upgrade dry-run, preserved user/config/governance bytes and customized-conflict zero-write: 19 checks passed.
+- Video/Douyin/QuickAdd offline contracts: 22/22 passed. Douyin tests cover legitimate host identity, optional dependencies, metadata-only/no-credentials args, out-of-run media rejection and CAPTCHA propagation. No live Douyin service/provider request was run.
+- Windows PowerShell 5.1 fresh CORE installation passed with seven Skill metadata checks. The documented process-only execution-policy parameter was used in the isolated legacy-shell test; user/system policy was not changed. Ordinary ASR dependency routing does not require the optional Douyin Provider.
+- Starter ownership and bootstrap hashes verified; user bootstrap remains unchanged and no runtime ledger is shipped. Base/Canvas SAMPLE parses and starts with no archived outcome claims. Public export contains no original personal data, private machine paths or high-signal credentials.
+
+Core package and offline contracts are verified in Windows. Actual Obsidian/Codex GUI, users external RAG/learning platforms, new video sources and content/teaching quality remain deployment-specific; installed metadata is not a claim of end-to-end health. Release-archive bytes are checked separately before publication.
+
+
 ## v0.1.3 Workflow and quality update
 
 Package integrity checks and a fresh Windows PowerShell 5.1 installation passed with CORE_READY=true. Shared analysis rules, Video routing/template, coverage/failure handling and explicit remote authorization were reviewed as scoped text changes. No acquisition/runtime logic or dependency changed. GUI and new-platform video behavior were not retested; optional features remain disabled until configured.

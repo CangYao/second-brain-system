@@ -22,7 +22,17 @@
     "git_backup": [
       "Git",
       "user-authorized private remote and authentication"
-    ]
+    ],
+    "evolution": [
+      "PowerShell 7.5+",
+      "existing Python 3.12+ registered as python",
+      "explicit empty-store initialization"
+    ],
+    "x_article_archive": [
+      "existing Python 3.12+",
+      "per-request access to FxTwitter; no credentials or model installation"
+    ],
+    "learning_platform": "User-operated DeepTutor or equivalent; not installed or bundled"
   },
   "downloads": "No automatic download; no bundled program or model"
 }

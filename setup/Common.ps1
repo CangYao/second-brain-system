@@ -77,16 +77,16 @@ function Get-SBCommand([string]$Name,$ToolPaths,[switch]$NoDiscovery) {
     if ($found -and [IO.Path]::IsPathRooted($found) -and (Test-Path -LiteralPath $found -PathType Leaf)) {
         Assert-SBNoLinks $found
         # User video paths must never depend on internal host-managed runtimes.
-        if($Name -in @('node','yt-dlp','ffmpeg','ffprobe','whisper-cli','whisper-model-small') -and $found -match 'codex-runtimes|codex-primary-runtime') { return $null }
+        if($Name -in @('python','node','yt-dlp','ffmpeg','ffprobe','whisper-cli','whisper-model-small','douyin-python','douyin-provider') -and $found -match 'codex-runtimes|codex-primary-runtime') { return $null }
         return (Get-SBFull $found)
     }
     return $null
 }
 function New-SBRegistry($ToolPaths,[switch]$NoDiscovery) {
     $entries=@()
-    foreach($name in @('node','yt-dlp','ffmpeg','ffprobe','whisper-cli','whisper-model-small')) {
+    foreach($name in @('python','node','yt-dlp','ffmpeg','ffprobe','whisper-cli','whisper-model-small','douyin-python','douyin-provider')) {
         $file=Get-SBCommand $name $ToolPaths -NoDiscovery:$NoDiscovery
-        if($file){$entries+= [pscustomobject]@{tool_name=$name;canonical_path=$file;managed_by='user';version=$null;purpose='Optional Video dependency'}}
+        if($file){$entries+= [pscustomobject]@{tool_name=$name;canonical_path=$file;managed_by='user';version=$null;purpose=$(if($name -eq 'python'){'Optional Python feature'}else{'Optional Video dependency'})}}
     }
     return ,$entries
 }
@@ -127,7 +127,7 @@ function Test-SBVault([string]$Vault,[switch]$NoDiscovery,$ToolPaths) {
     foreach($entry in @('AGENTS.md','09_System/System-Map.md','09_System/Workflows/ROUTER.md','09_System/Workflows/CORE-CONTRACT.md','09_System/Workflows/Inbox.md','09_System/Workflows/Book.md','09_System/Workflows/Video.md','09_System/Workflows/Daily.md','09_System/Workflows/Thought.md','09_System/Workflows/Personal-Model.md')){AddCheck $entry (Test-Path -LiteralPath (Join-Path $Vault $entry) -PathType Leaf) 'Required system entry'}
     foreach($dir in @('00_Inbox','01_Knowledge','02_Topics','03_Books/Fiction','03_Books/Nonfiction','04_Media/Videos','05_Personal','06_Daily','07_Timeline','08_Projects')){AddCheck $dir (Test-Path -LiteralPath (Join-Path $Vault $dir) -PathType Container) 'User-owned directory'}
     foreach($name in @('Knowledge','Book-Fiction','Book-Nonfiction','Video','Daily','Thought')){AddCheck ('Template/'+$name) (Test-Path -LiteralPath (Join-Path $Vault ('09_System/Templates/'+$name+'.md'))) 'Canonical template'}
-    foreach($name in @('ai-reading','deep-reading','codex-research','knowledge-synthesis','obsidian-markdown')){
+    foreach($name in @('ai-reading','deep-reading','codex-research','knowledge-synthesis','obsidian-markdown','obsidian-bases','json-canvas')){
         $file=Join-Path $Vault ('.agents/skills/'+$name+'/SKILL.md');$ok=$false
         if(Test-Path -LiteralPath $file){$text=Get-Content -LiteralPath $file -Raw -Encoding UTF8;$ok=$text -match '(?s)^---\r?\n.*?\r?\n---' -and $text -match ('(?m)^name:\s*'+[regex]::Escape($name)+'\s*$') -and $text -match '(?m)^description:\s*\S+'}
         AddCheck ('Skill/'+$name) $ok 'Project discovery metadata; actual host session loading is external'

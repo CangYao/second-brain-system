@@ -7,8 +7,8 @@
 - Repository: https://github.com/yanz86808-beep/ai-reading-skill
 - Source commit: b936e92eef3cfd65bfea98b403a8ef31f8e59216
 - License: MIT; [fixed source](https://github.com/yanz86808-beep/ai-reading-skill/blob/b936e92eef3cfd65bfea98b403a8ef31f8e59216/LICENSE)
-- Runtime files: .agents/skills/ai-reading/SKILL.md and references/, agents/openai.yaml
-- Notice: .agents/skills/ai-reading/LICENSE
+- Runtime files: starter-vault/.agents/skills/ai-reading/SKILL.md and references/, agents/openai.yaml
+- Notice: starter-vault/.agents/skills/ai-reading/LICENSE
 - Modifications: SOURCE.md 重新生成，去除安装位置；SKILL.md 的教学型触发边界为本地适配。
 
 ## codex-research
@@ -16,8 +16,8 @@
 - Repository: https://github.com/LIU-31415/codex-research
 - Source commit: c74599903053f7ea2c0b1f9ae6749944bcd608bf
 - License: MIT; [fixed source](https://github.com/LIU-31415/codex-research/blob/c74599903053f7ea2c0b1f9ae6749944bcd608bf/LICENSE)
-- Runtime files: .agents/skills/codex-research/SKILL.md and references/, VERSION
-- Notice: .agents/skills/codex-research/LICENSE
+- Runtime files: starter-vault/.agents/skills/codex-research/SKILL.md and references/, VERSION
+- Notice: starter-vault/.agents/skills/codex-research/LICENSE
 - Modifications: SOURCE.md 重新生成，去除安装位置；其余 runtime 与此固定 upstream blob 一致。
 
 ## obsidian-markdown
@@ -25,8 +25,8 @@
 - Repository: https://github.com/kepano/obsidian-skills
 - Source commit: 3ccff5338ea700537839b21900aa5358a0402c98
 - License: MIT; [fixed source](https://github.com/kepano/obsidian-skills/blob/3ccff5338ea700537839b21900aa5358a0402c98/LICENSE)
-- Runtime files: .agents/skills/obsidian-markdown/SKILL.md and references/
-- Notice: .agents/skills/obsidian-markdown/LICENSE
+- Runtime files: starter-vault/.agents/skills/obsidian-markdown/SKILL.md and references/
+- Notice: starter-vault/.agents/skills/obsidian-markdown/LICENSE
 - Modifications: SOURCE.md 重新生成，去除安装位置；其余 runtime 与此固定 upstream blob 一致。
 
 ## Reference-only
@@ -36,3 +36,24 @@ deep-reading、knowledge-synthesis 为独立表述实现，其 SOURCE.md 列出�
 ## Not bundled
 
 社区插件、Node、FFmpeg、yt-dlp、whisper.cpp、模型、Obsidian 与 Codex 均由用户另行获取。插件目录、安装包、设备状态和历史数据不在本发行包中。项目代码许可不替代它们各自许可，模型许可/来源也不从推理程序许可推断。
+
+## json-canvas
+
+- Repository: https://github.com/kepano/obsidian-skills
+- Source commit: 3ccff5338ea700537839b21900aa5358a0402c98
+- License: MIT; fixed notice preserved at starter-vault/.agents/skills/json-canvas/LICENSE.
+- Runtime: unchanged SKILL.md and references/ from the audited component; SOURCE.md added for provenance. No Obsidian program/plugin is bundled.
+
+## obsidian-bases
+
+- Repository: https://github.com/kepano/obsidian-skills
+- Source commit: 3ccff5338ea700537839b21900aa5358a0402c98
+- License: MIT; fixed notice preserved at starter-vault/.agents/skills/obsidian-bases/LICENSE.
+- Runtime: unchanged SKILL.md and references/ from the audited component; SOURCE.md added for provenance. No Obsidian program/plugin is bundled.
+
+## x2md
+
+- Repository: https://github.com/yshmarov/x2md
+- Fixed source commit: 6fd2ed7d0e61af72cfd677ed67bfe23e6c58fe91; upstream 0.1.0.
+- License: MIT, unchanged notice at starter-vault/09_System/Scripts/X-Archive/vendor/LICENSE.
+- vendor/x2md.py unchanged; the separate local archive.py adapter adds bounded Vault output, source handling and safe image capture. No actual captured article or author notes included.

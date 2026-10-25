@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0
+
+- Carry forward the previously committed book reading-status contract and portable Douyin 1.1.0 adapter; external anonymous Provider remains separately configured and unbundled.
+
+- Add optional portable Evolution runtime with explicit empty initialization, registered Python, external result roots and protected approvals/history. No original governance data exported.
+- Add pinned MIT X-article archive adapter, source preservation, bounded image acquisition and exclusive writes; no actual article or runtime cache bundled.
+- Add obsidian-bases/json-canvas Skills with MIT notices and fixed provenance; seven project Skills total.
+- Add learning-platform responsibilities, empty learning Base/Canvas SAMPLE and optional external Vault-Q&A workflow. Progress stays in the user learning platform.
+- Add scoped Windows bootstrap/read boundaries and document optional Python configuration; core remains usable without optional tools.
+- Align distribution, local example and ownership manifest version metadata at 0.2.0. Preserve user data/config during system-only upgrades.
+
 ## 0.1.4
 
 - Correct repository responsibilities: the primary repository preserves personal knowledge and all system iterations for recovery; the reusable distribution derives framework and functionality from it with personal data and private machine configuration removed.

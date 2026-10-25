@@ -1,6 +1,6 @@
 # Second Brain System Map
 
-Public distribution v0.1.4；核心规则来源功能基线 private-v1.2.0，无私人安装记录。
+Public distribution v0.2.0；可复用功能来源基线 private-v1.4.0，无私人安装记录。
 
 ## Purpose and responsibilities
 
@@ -37,3 +37,12 @@ DISCOVER → REUSE → bounded DESIGN → authorized CHECKPOINT → IMPLEMENT �
 ## Primary repository and reusable distribution
 
 主仓库保存用户资料及每次系统迭代的完整已跟踪版本与历史，用于恢复和回退。发行仓库从主仓库提取基本框架与功能，排除个人资料、模型实际内容、机器私有配置、凭据及私有 Git 历史。系统更新先进入主仓库，再同步可分发部分到发行仓库；二者不是互斥的保存目标。授权和发布核验遵循 CORE-CONTRACT，不增加后台同步。
+
+## v0.2 optional capabilities
+
+- 七个项目 Skill：原五个，加 obsidian-bases/json-canvas；均保留许可与固定来源。
+- [[09_System/Workflows/Evolution]]：用户显式初始化的本地任务/经验/复审/提案闭环；运行数据是 USER_DATA，不在升级清单中。
+- [[09_System/Scripts/X-Archive/README]]：标准库适配器＋固定 MIT x2md；按次获取正文/图片、排他落盘，整理笔记由用户授权的 Agent 完成，不捆绑实际文章。
+- [[09_System/Workflows/Learning]]：学习平台管理全流程与进度，Obsidian 只存审核成果；示例位于包外层 examples，不自动导入。
+- [[09_System/Workflows/Vault-Ask]]：可选外部入口；索引和凭据归用户管理，不安装服务或迁移数据。
+- 可选匿名抖音 acquisition 的外部 Provider 由部署者另行审查与配置；本包不复制用户安装的 Provider 或本机路径。

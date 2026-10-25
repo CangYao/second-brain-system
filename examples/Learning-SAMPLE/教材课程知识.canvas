@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "id": "sample_header",
+      "type": "text",
+      "x": 0,
+      "y": -170,
+      "width": 1200,
+      "height": 130,
+      "text": "# 教材 → 课程 → 知识（SAMPLE）\n\n只展示关联，不表示已学或掌握。连续进度由你的学习平台管理。"
+    },
+    {
+      "id": "sample_0",
+      "type": "file",
+      "file": "08_Projects/Learning-SAMPLE/教材-SAMPLE.md",
+      "x": 0,
+      "y": 30,
+      "width": 360,
+      "height": 300
+    },
+    {
+      "id": "sample_1",
+      "type": "file",
+      "file": "08_Projects/Learning-SAMPLE/课程-SAMPLE.md",
+      "x": 430,
+      "y": 30,
+      "width": 360,
+      "height": 300
+    },
+    {
+      "id": "sample_2",
+      "type": "file",
+      "file": "08_Projects/Learning-SAMPLE/知识-SAMPLE.md",
+      "x": 860,
+      "y": 30,
+      "width": 360,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_0",
+      "fromNode": "sample_0",
+      "fromSide": "right",
+      "toNode": "sample_1",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "教材来源"
+    },
+    {
+      "id": "edge_1",
+      "fromNode": "sample_1",
+      "fromSide": "right",
+      "toNode": "sample_2",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "label": "知识关联"
+    }
+  ]
+}

@@ -47,5 +47,33 @@
     "version": null,
     "managed_by": "system",
     "purpose": "OPTIONAL video dependency"
+  },
+  {
+    "tool_name": "python",
+    "canonical_path": "<USER_SELECTED_PYTHON_3_12_OR_NEWER>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "Optional Evolution and X-Archive; no automatic install"
+  },
+  {
+    "tool_name": "vault-ask",
+    "canonical_path": "<USER_SELECTED_VAULT_ASK_ENTRY>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "Optional external readonly Q&A; not bundled"
+  },
+  {
+    "tool_name": "douyin-python",
+    "canonical_path": "<USER_SELECTED_DOUYIN_PYTHON>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "Optional separately audited anonymous Douyin provider; not bundled"
+  },
+  {
+    "tool_name": "douyin-provider",
+    "canonical_path": "<USER_SELECTED_DOUYIN_PROVIDER>",
+    "version": null,
+    "managed_by": "user",
+    "purpose": "Optional separately audited anonymous Douyin provider; not bundled"
   }
 ]

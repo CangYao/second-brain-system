@@ -1,0 +1,14 @@
+filters:
+  and:
+    - 'file.inFolder("08_Projects/Learning-SAMPLE")'
+    - 'file.ext == "md"'
+    - 'validation_fixture != true'
+    - or:
+        - 'archive_reviewed == true'
+        - 'if(archived_sections, archived_sections.length > 0, false)'
+formulas:
+  archive_scope: 'if(archive_reviewed == true, "整篇已审核", "仅登记片段")'
+views:
+  - type: table
+    name: 已归档成果
+    order: [file.name, note.archived_on, formula.archive_scope, note.archived_sections, note.sources, note.relations]

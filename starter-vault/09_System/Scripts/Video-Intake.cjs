@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { spawnSync } = require('node:child_process');
-const VERSION = '1.0.1-public.1';
+const VERSION = '1.1.0-public.1';
 let activeCacheRoot;
 const MARKER = 'second-brain-video-intake-v1';
 const calledTools = new Set();
@@ -27,6 +27,12 @@ function safeRemote(value, hosts) {
   return u;
 }
 function parseInput(value) {
+  // Douyin accepts pasted share text; only the first Douyin link inside it is used.
+  const douyin = String(value).match(/https?:\/\/(?:v\.douyin\.com|(?:www\.)?(?:ies)?douyin\.com)\/[^\s"'<>，。]*/i);
+  if (douyin && (douyin.index === 0 || !/^https?:\/\//i.test(value))) {
+    const u = safeRemote(douyin[0], ['douyin.com', 'iesdouyin.com']);
+    return { platform: 'douyin', url: u.href, video_id: u.href.match(/(?:\/video\/|modal_id=)(\d{8,25})/)?.[1] };
+  }
   if (/^BV[a-zA-Z0-9]{10}$/.test(value)) value = 'https://www.bilibili.com/video/' + value;
   if (!/^https?:\/\//i.test(value)) {
     const local = assertLocal(path.resolve(value));
@@ -214,6 +220,22 @@ async function biliAudio(meta, input, run, registry, language, limitSeconds) {
   meta.acquisition_provider = 'bilibili-public-playurl';
   return result;
 }
+function douyinMedia(input, run, registry, language, limitSeconds, noAsr) {
+  // Anonymous provider only: no login, browser profile or cookie file is passed to it.
+  const py = tool(registry, 'douyin-python'), provider = tool(registry, 'douyin-provider');
+  const args = [provider, '--input', input.url, '--max-seconds', String(limitSeconds), ...(noAsr ? ['--metadata-only'] : ['--output-dir', path.join(run, 'media')])];
+  let out;
+  try { out = native(py, args, 300000); }
+  catch (e) { let j; try { j = JSON.parse(String(e.message).trim().split('\n').pop()); } catch { /* not provider JSON */ } if (j?.code) fail(j.message, 'DOUYIN_' + j.code); throw e; }
+  const d = JSON.parse(out);
+  const meta = { url: d.url, original_url: input.url, platform: 'douyin', video_id: d.aweme_id, title: d.title, description: d.desc, creator: d.author, published_date: d.published_date, duration_seconds: d.duration_seconds, chapters: [], acquisition_provider: d.provider, ...(d.media_kind ? { media_kind: d.media_kind } : {}) };
+  if (noAsr) return { meta };
+  const file = path.resolve(d.media_file);
+  if (!inside(file, path.join(run, 'media'))) fail('Provider media outside run directory', 'UNSAFE_PATH');
+  const a = asr(file, registry, run, language, limitSeconds);
+  if (meta.duration_seconds && Math.abs(a.duration - meta.duration_seconds) > 3) fail('Downloaded media duration differs from selected source', 'TRANSCRIPT_UNAVAILABLE');
+  return { meta, ...a };
+}
 function metaFromYt(info, input) {
   const id = input.platform === 'bilibili' ? input.video_id || (info.webpage_url || '').match(/BV[a-zA-Z0-9]{10}/)?.[0] || String(info.id) : String(info.id);
   const url = input.platform === 'bilibili' && /^BV[a-zA-Z0-9]{10}$/.test(id) ? `https://www.bilibili.com/video/${id}/?p=${input.part}` : input.url;
@@ -229,7 +251,7 @@ function baseYt(registry, cookieFile) {
 function availableTool(registry, name) { try { tool(registry, name); return true; } catch { return false; } }
 function videoReadiness(registry) {
   const check = names => ({ ready: names.every(n => availableTool(registry, n)), missing: names.filter(n => !availableTool(registry, n)) });
-  return { public_subtitles: check([]), yt_dlp_subtitles: check(['node','yt-dlp']), asr: check(['ffmpeg','ffprobe','whisper-cli','whisper-model-small']) };
+  return { public_subtitles: check([]), yt_dlp_subtitles: check(['node','yt-dlp']), asr: check(['ffmpeg','ffprobe','whisper-cli','whisper-model-small']), douyin: check(['douyin-python','douyin-provider','ffmpeg','ffprobe','whisper-cli','whisper-model-small']) };
 }
 function loadRuntime(configFile, registryOverride) {
   if (Number(process.versions.node.split('.')[0]) < 24) fail('Video requires Node 24 or later', 'DEPENDENCY_FAILURE');
@@ -302,7 +324,7 @@ function options(argv) {
 }
 async function main(argv) {
   const o = options(argv);
-  if (o.help) { console.log('Video-Intake ' + VERSION + '\nnode Video-Intake.cjs --input <URL|BV|local media> [--config <local.json>] [--registry <override>] [--language auto|en|zh] [--no-asr] [--max-minutes 180]\n--check: offline branch readiness (missing optional dependencies => WARN). --cleanup <owned run> requires the same local config. Acquisition only; no note/Git writes or implicit credentials.'); return; }
+  if (o.help) { console.log('Video-Intake ' + VERSION + '\nnode Video-Intake.cjs --input <URL|BV|Douyin share text|local media> [--config <local.json>] [--registry <override>] [--language auto|en|zh] [--no-asr] [--max-minutes 180]\n--check: offline branch readiness (missing optional dependencies => WARN). --cleanup <owned run> requires the same local config. Acquisition only; no note/Git writes or implicit credentials.'); return; }
   const configFile = path.resolve(o.config || path.join(__dirname, '..', 'Config', 'local.json'));
   const { config, registry, tempRoot, cacheRoot } = loadRuntime(configFile, o.registry);
   activeCacheRoot = cacheRoot;
@@ -331,6 +353,11 @@ async function main(argv) {
       const a = asr(input.local, registry, run, language, maxMinutes * 60); segments = a.segments; method = 'ASR'; lang = a.language;
       meta = { platform: 'local', local_file: input.local, video_id: crypto.createHash('sha256').update(input.local).digest('hex').slice(0, 16), identity_basis: 'local path (provisional; Workflow must confirm association)', title: path.basename(input.local), duration_seconds: a.duration };
     } else {
+      if (input.platform === 'douyin') {
+        const d = douyinMedia(input, run, registry, language, maxMinutes * 60, o['no-asr']); meta = d.meta;
+        if (!d.segments) fail('Douyin has no platform captions; ASR disabled', 'TRANSCRIPT_UNAVAILABLE');
+        segments = d.segments; method = 'ASR'; lang = d.language;
+      }
       if (input.platform === 'bilibili') { try { const b = await biliPublic(input, attempt, language); ({ meta, segments, method, language: lang } = b); } catch (e) { attempt('bilibili-public-api', e); } }
       if (input.platform === 'bilibili' && meta && !segments && !o['no-asr']) {
         try { const a = await biliAudio(meta, input, run, registry, language, maxMinutes * 60); segments = a.segments; method = 'ASR'; lang = a.language; }

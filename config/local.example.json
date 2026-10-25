@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "public_version": "0.1.0",
+  "public_version": "0.2.0",
   "vault_root": "<VAULT_ROOT>",
   "tools_root": "<EXTERNAL_LOCAL_ROOT>",
   "temp_root": "<EXTERNAL_LOCAL_ROOT>/Temp/VideoPipeline",

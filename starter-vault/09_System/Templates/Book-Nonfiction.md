@@ -3,7 +3,7 @@ id: "book_<slug>"
 type: book
 title: "{{title}}"
 book_category: Nonfiction
-# 已知时添加 author；开始阅读后添加 status（如 reading、completed、paused）。
+# 已知时添加 author；按需添加 status：planned、reading、paused 或 completed（裸小写英文）。
 created: "{{date:YYYY-MM-DD}}"
 updated: "{{date:YYYY-MM-DD}}"
 tags:

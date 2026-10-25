@@ -18,7 +18,7 @@ try{
     $manifest=Get-SBManifest $package
     $tools=$null;if($ToolPathsFile){$tools=Read-SBJson $ToolPathsFile}
     $registry=New-SBRegistry $tools -NoDiscovery:$NoDiscovery
-    $registry+= [pscustomobject]@{tool_name='video-intake';canonical_path=(Join-Path $vault '09_System/Scripts/Video-Intake.cjs');managed_by='system';version='1.0.1-public.1';purpose='Optional acquisition only'}
+    $registry+= [pscustomobject]@{tool_name='video-intake';canonical_path=(Join-Path $vault '09_System/Scripts/Video-Intake.cjs');managed_by='system';version='1.1.0-public.1';purpose='Optional acquisition only'}
     $config=[pscustomobject]@{schema_version=1;public_version=$manifest.public_version;vault_root=$vault;tools_root=$local;temp_root=(Join-Path $local 'Temp/VideoPipeline');cache_root=(Join-Path $local 'Cache/VideoPipeline');registry_file='tool-registry.local.json';timezone='SYSTEM';features=[pscustomobject]@{video=[bool]$Video;translation=[bool]$Translation;git_backup=[bool]$GitBackup}}
     Assert-SBConfig $vault $config
     if($DryRun){[pscustomobject]@{status='DRY_RUN';destination=$vault;local_root=$local;public_version=$manifest.public_version;features=$config.features;writes=0}|ConvertTo-Json -Depth 5;exit 0}
