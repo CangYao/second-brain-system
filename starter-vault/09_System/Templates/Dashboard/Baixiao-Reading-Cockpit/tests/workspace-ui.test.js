@@ -305,3 +305,74 @@ test('empty home and project views keep zero metrics and show no invented hero n
   }
   assert.equal(h.stats().writes,0);
 });
+
+test('all lower home cards retain their source paths and escape content; Tasks retains home context',async()=>{
+  const h=harness(),data=fixture(),unsafe='<img src=x onerror="alert(1)"><script>1</script>';
+  const bookPath='03_Books/Nonfiction/Lower-book.md';
+  h.add(bookPath,{type:'book',id:'book_lower',status:'reading',title:unsafe,author:[unsafe],book_category:unsafe,tags:[unsafe]});
+  data.projects[0].panel.title=unsafe;
+  data.inbox=[{path:'00_Inbox/Lower-article.md',title:unsafe,type:'article'}];
+  data.knowledge=[{path:'01_Knowledge/Lower-concept.md',title:unsafe,type:'concept',tags:[unsafe],updated:'2026-10-29'}];
+  data.daily=[{path:'06_Daily/2026-10-30.md',title:unsafe,type:'daily',date:'2026-10-30'}];
+  data.tasksMarkdown='```tasks\nnot done\npath includes 08_Projects\n```';
+  data.counts={projects:1,inbox:1,knowledge:1,daily:1};h.setData(data);h.app.plugins.plugins['obsidian-tasks-plugin']={};
+  for(const row of [...data.projects,...data.inbox,...data.knowledge,...data.daily])h.add(row.path);
+  await h.view.render();const lower=h.view.contentEl.querySelector('.sb-library-grid');
+  assert.equal(lower.querySelectorAll('.sb-module').length,6);
+  assert.equal(lower.querySelector('img'),null);assert.equal(lower.querySelector('script'),null);
+  assert.equal(lower.querySelector('[onerror]'),null);assert.ok(lower.textContent.includes(unsafe));
+  for(const [selector,target] of [
+    ['.sb-book-feature',bookPath],['.sb-project-portal',data.projects[0].path],
+    ['.sb-inbox-document',data.inbox[0].path],['.sb-knowledge-card',data.knowledge[0].path],['.sb-daily-entry',data.daily[0].path]
+  ]){
+    const button=lower.querySelector(selector);assert.equal(button.dataset.sbOpen,target);
+    button.onclick();await tick();assert.deepEqual(h.links.at(-1),[target,HOME,true]);
+  }
+  assert.equal(lower.querySelector('.sb-inbox-document .sb-document-copy small').textContent,'文章');
+  assert.equal(lower.querySelector('.sb-knowledge-card .sb-content-chip').textContent,'概念');
+  const taskRender=h.markdown.find(item=>item.md===data.tasksMarkdown);
+  assert.ok(taskRender);assert.equal(taskRender.sourcePath,HOME);assert.equal(taskRender.el,lower.querySelector('.sb-workspace-tasks'));
+  lower.querySelector('[data-sb-page="projects"]').onclick();await tick();assert.equal(h.view.state.page,'projects');
+  assert.equal(h.stats().writes,0);
+});
+
+test('lower dates display only recorded date/updated fields and never infer them from mtime or file names',async()=>{
+  const h=harness(),data=fixture(),mtime=Date.UTC(2050,0,1),file={stat:{mtime}};
+  data.projects[0]={...data.projects[0],updated:undefined,mtime,file};
+  data.knowledge=[{path:'01_Knowledge/Undated.md',title:'Undated knowledge',type:'concept',mtime,file}];
+  data.daily=[
+    {path:'06_Daily/2044-09-30.md',title:'Undated journal',type:'daily',updated:'2033-01-02',created:'2034-02-03',mtime,file},
+    {path:'06_Daily/Recorded.md',title:'Dated journal',type:'daily',date:'2026-10-30',mtime,file}
+  ];h.setData(data);await h.view.render();const lower=h.view.contentEl.querySelector('.sb-library-grid');
+  assert.match(lower.querySelector('.sb-project-portal').textContent,/内容更新日期未登记/);
+  assert.equal(lower.querySelector('.sb-knowledge-date').textContent,'内容更新日期未登记');
+  const rows=lower.querySelectorAll('.sb-daily-entry');
+  assert.equal(rows[0].querySelector('.sb-date-tile b').textContent,'—');
+  assert.equal(rows[0].querySelector('.sb-date-tile small').textContent,'日期未登记');
+  assert.equal(rows[0].querySelector('.sb-daily-copy small').textContent,'记录日期未登记');
+  assert.doesNotMatch(rows[0].textContent,/2050|2044|2033|2034/);
+  assert.equal(rows[1].querySelector('.sb-date-tile b').textContent,'30');
+  assert.equal(rows[1].querySelector('.sb-date-tile small').textContent,'2026-10');
+  assert.equal(rows[1].querySelector('.sb-daily-copy small').textContent,'2026-10-30');
+  assert.equal(h.stats().writes,0);
+});
+
+test('lower-only content refresh preserves the upper header and hero, and all six modules have empty states',async()=>{
+  const h=harness(),data=fixture();data.projects=[];data.counts={projects:0,inbox:0,knowledge:0,daily:0};h.setData(data);
+  await h.view.render();
+  const beforeHeader=h.view.contentEl.querySelector('.ycs-topbar').outerHTML;
+  const beforeHero=h.view.contentEl.querySelector('.sb-workspace-hero').outerHTML;
+  const lower=h.view.contentEl.querySelector('.sb-library-grid');
+  for(const kind of ['reading','projects','inbox','knowledge','daily','tasks']){
+    const module=lower.querySelector(`.sb-module-${kind}`);assert.ok(module);assert.ok(module.querySelector('.sb-workspace-empty'));
+  }
+  assert.equal(lower.querySelectorAll('[data-sb-open]').length,0);
+  data.inbox=[{path:'00_Inbox/New.md',title:'A newly listed source',type:'article'}];data.counts.inbox=1;
+  data.knowledge=[{path:'01_Knowledge/New.md',title:'A newly listed concept',type:'concept',updated:'2026-10-30'}];data.counts.knowledge=1;
+  data.daily=[{path:'06_Daily/New.md',title:'A newly listed journal',type:'daily',date:'2026-10-30'}];data.counts.daily=1;
+  await h.view.render();
+  assert.equal(h.view.contentEl.querySelector('.ycs-topbar').outerHTML,beforeHeader);
+  assert.equal(h.view.contentEl.querySelector('.sb-workspace-hero').outerHTML,beforeHero);
+  assert.match(h.view.contentEl.querySelector('.sb-library-grid').textContent,/A newly listed source/);
+  assert.equal(h.gpuBindings.at(-1).cards.length,4);assert.equal(h.stats().writes,0);
+});

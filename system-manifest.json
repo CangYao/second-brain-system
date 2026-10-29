@@ -332,7 +332,7 @@
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/main.js",
-      "sha256": "4157a4abc20ddf3225a2df425bf908ade9f3d03e60b04e8186a2df6f8c3a47c6"
+      "sha256": "546aa183a0021431f081da8fbaadec30d624d67c6d19beaa9a0a50d08c906200"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/manifest.json",
@@ -352,15 +352,15 @@
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-workspace-ui.js",
-      "sha256": "b7cbfd631f409d5feaf1a13894cc3de08c903fae2b45ffc4391369a20bcc3641"
+      "sha256": "85af173535fee58a61019c71a448cc7d48e1f9c2ac44a51d3fa663411accbacf"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain.css",
-      "sha256": "6857fbbe574f27484334251a22446be46a71d2774ee5caeec106173e3ecf02a7"
+      "sha256": "e85577d18f3ff212030bec99e20866fa3cc6ea12a67204f6d8da87baa5349e27"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/styles.css",
-      "sha256": "d2d4197f1e7a5e0d4b500c80ae763ec2341500fcb4e317b0caee9a3bc8386afa"
+      "sha256": "0fcc1ad4b509a503ec39b015619ed6625324523605cc42af7ff4a46db932daef"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/reading-dashboard-contract.test.js",
@@ -376,11 +376,11 @@
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/workspace-ui.test.js",
-      "sha256": "bc9b6713db8436359742645e17d7989dd543be24f700ec78ea4d41c51384f908"
+      "sha256": "47cc392f8e9e565b056dcb1e3c7c864d37ed8ed0ae2832c103e8c8111f27824b"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/UPSTREAM.md",
-      "sha256": "5ea026d75a894d4b4aa0cc77c907f4ba73764531903d195c476493abb0ca5df6"
+      "sha256": "0d8f8ac9abf2760c31b3e18bdbcfae4ce383a09055043dcaa374bbb85357eeb2"
     },
     {
       "path": "09_System/Templates/Dashboard/README.md",

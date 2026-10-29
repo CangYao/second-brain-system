@@ -611,3 +611,162 @@
   .ycs-app .sb-orbit-core,
   .ycs-app button.sb-orbit-card { animation: none; transition: none; }
 }
+
+/* Lower home modules only: distinct materials for real books, projects, notes and days. */
+.ycs-app .sb-workspace-grid.sb-library-grid { align-items: stretch; gap: 18px; }
+.ycs-app .sb-workspace-grid.sb-library-grid > .sb-module { display: flex; flex-direction: column; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid > .sb-module::after { display: none; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+}
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-head > div { flex: 1; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-head h2 { margin: 2px 0 0; font-size: 16px; line-height: 1.4; color: #e7f2f5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-head small { display: block; color: var(--sb-panel-accent, #9fdcc8); font-size: 9px; line-height: 1.4; letter-spacing: .11em; font-weight: 500; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-icon { display: grid; flex: 0 0 38px; place-items: center; width: 38px; height: 40px; border: 1px solid color-mix(in srgb, var(--sb-panel-accent) 25%, transparent); border-radius: 12px; color: var(--sb-panel-accent); background: color-mix(in srgb, var(--sb-panel-accent) 9%, #131d29); box-shadow: inset 0 1px 0 rgba(224, 245, 255, .07); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-icon svg { display: block; width: 20px; height: 20px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-count { min-width: 27px; padding: 3px 8px; border: 1px solid rgba(156, 190, 213, .2); border-radius: 9px; color: #c4d9df; background: rgba(13, 22, 33, .6); font-size: 11px; font-weight: 500; text-align: center; font-variant-numeric: tabular-nums; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-content { flex: 1 1 auto; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(144, 178, 202, .12); color: #93aab9; font-size: 11px; line-height: 1.65; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-foot :is(p, .sb-workspace-caption, .sb-workspace-source) { margin: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-foot .sb-workspace-source { color: var(--sb-panel-accent); }
+.ycs-app .sb-workspace-grid.sb-library-grid :is(.sb-book-feature, .sb-project-portal, .sb-inbox-document, .sb-knowledge-card, .sb-daily-entry) { box-sizing: border-box; min-width: 0; width: 100%; height: auto; margin: 0; white-space: normal; text-align: left; cursor: pointer; font-family: inherit; }
+.ycs-app .sb-workspace-grid.sb-library-grid :is(.sb-content-chip, .sb-card-action) { display: inline-block; font-size: 10px; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-content-chip { align-self: flex-start; padding: 3px 7px; border: 1px solid rgba(127, 212, 190, .24); border-radius: 7px; background: rgba(50, 135, 111, .09); color: #9ce8ce; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-card-action { color: #a7dce9; }
+
+/* Reading notes become typographic book objects, without pretending to be publisher covers. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-reading .sb-module-content { display: flex; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-gallery { display: grid; align-items: stretch; width: 100%; gap: 13px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature {
+  display: grid;
+  grid-template-columns: minmax(104px, 132px) minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 260px;
+  padding: 18px 16px;
+  border: 1px solid rgba(126, 210, 190, .22);
+  border-radius: 15px;
+  background: radial-gradient(ellipse at 15% 45%, rgba(69, 174, 154, .18), transparent 68%), radial-gradient(ellipse at 100% 0, rgba(103, 113, 203, .1), transparent 65%), #121e28;
+  box-shadow: inset 0 1px 0 rgba(220, 255, 243, .05), 0 12px 26px rgba(0, 0, 0, .14);
+  transition: border-color .22s, box-shadow .22s;
+}
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-object { position: relative; display: block; width: 100%; height: 196px; transform: perspective(600px) rotateY(-13deg) rotateZ(-3deg); transform-origin: center; box-shadow: 12px 17px 23px rgba(0, 0, 0, .38); transition: transform .3s; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-object::before { content: ""; position: absolute; top: 5px; bottom: 4px; right: -7px; width: 9px; border-radius: 0 3px 3px 0; background: repeating-linear-gradient(to bottom, #98b7b2 0 1px, #c9d8cf 1px 3px); transform: skewY(-7deg); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-spine { position: absolute; z-index: 2; inset: 0 auto 0 0; width: 9px; border-radius: 3px 0 0 3px; background: linear-gradient(90deg, #142b32, #3e716e 48%, #244f55); border-right: 1px solid rgba(194, 240, 222, .22); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 15px; padding: 17px 12px 15px 20px; border: 1px solid rgba(166, 234, 215, .48); border-radius: 4px 8px 8px 4px; background: radial-gradient(ellipse at 85% 10%, rgba(134, 225, 200, .28), transparent 62%), linear-gradient(145deg, #2b6661, #203c58 70%, #232d4b); box-shadow: inset 1px 0 0 rgba(223, 255, 241, .4), inset 0 1px 0 rgba(206, 255, 240, .2); overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face::after { content: ""; position: absolute; left: 20px; right: 16px; bottom: 44px; height: 1px; background: linear-gradient(90deg, rgba(172, 245, 219, .45), transparent); pointer-events: none; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face > small { color: #abdace; font-size: 7px; letter-spacing: .13em; line-height: 1.6; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face > b { color: #f0fff7; font-size: 15px; font-weight: 600; line-height: 1.65; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face > em { margin-top: auto; color: #bfd9db; font-size: 9px; font-style: normal; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info > strong { color: #eaf5f2; font-size: 17px; line-height: 1.55; font-weight: 600; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info > small { color: #a8c1c8; font-size: 12px; line-height: 1.6; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-tags { display: flex; flex-wrap: wrap; gap: 5px; color: #88a7b4; font-size: 10px; line-height: 1.7; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info .sb-card-action { margin-top: 4px; color: #95ebca; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature:hover { border-color: #68bda5; box-shadow: inset 0 1px 0 rgba(220, 255, 243, .1), 0 14px 28px rgba(0, 0, 0, .2), 0 0 21px rgba(58, 194, 156, .08); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature:hover .sb-book-object { transform: perspective(600px) rotateY(-5deg) rotateZ(-1deg) translateY(-3px); }
+
+/* Project portals are individual destinations, with colored orbit emblems. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-project-portals { display: flex; flex-direction: column; gap: 11px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-project-portal { --sb-portal-color: #b2a4fa; position: relative; display: grid; grid-template-columns: 42px minmax(0, 1fr) 14px; align-items: center; gap: 11px; min-height: 79px; padding: 13px; border: 1px solid color-mix(in srgb, var(--sb-portal-color) 28%, #25323e); border-radius: 13px; background: radial-gradient(ellipse at 0 50%, color-mix(in srgb, var(--sb-portal-color) 12%, transparent), transparent 62%), linear-gradient(110deg, #1d273b, #141f2c); box-shadow: inset 0 1px 0 rgba(222, 234, 255, .06); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-project-portal:nth-child(3n + 2) { --sb-portal-color: #8cd7e5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-project-portal:nth-child(3n) { --sb-portal-color: #e8a9cd; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-orb { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid color-mix(in srgb, var(--sb-portal-color) 47%, transparent); border-radius: 50%; color: var(--sb-portal-color); background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--sb-portal-color) 20%, transparent), rgba(15, 27, 40, .7)); box-shadow: 0 0 14px color-mix(in srgb, var(--sb-portal-color) 13%, transparent), inset 0 1px 0 rgba(230, 244, 255, .12); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-orb svg { width: 19px; height: 19px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-copy { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-copy b { color: #e2e9f6; font-size: 13px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-copy small { color: #98aabd; font-size: 10px; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-portal-arrow { color: var(--sb-portal-color); font-size: 15px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-project-portal:hover { transform: translateY(-2px); border-color: var(--sb-portal-color); box-shadow: 0 7px 18px rgba(0, 0, 0, .2), 0 0 18px color-mix(in srgb, var(--sb-portal-color) 10%, transparent); }
+
+/* Incoming material uses a restrained layered-paper silhouette. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-module-inbox .sb-module-content { display: flex; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-inbox-stack { display: flex; flex: 1; flex-direction: column; gap: 13px; padding: 4px 0 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-inbox-document { position: relative; isolation: isolate; display: grid; grid-template-columns: 31px minmax(0, 1fr) 12px; align-items: center; gap: 10px; min-height: 63px; padding: 11px 12px; border: 1px solid #4b4259; border-radius: 8px 12px 10px 10px; background: linear-gradient(115deg, #282535, #1b2430); box-shadow: 0 7px 14px rgba(0, 0, 0, .13); transition: transform .2s, border-color .2s; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-inbox-document::before { content: ""; position: absolute; z-index: -1; inset: -4px 4px 5px; border: 1px solid rgba(167, 140, 185, .22); border-radius: 8px; background: #222b39; transform: rotate(-.8deg); pointer-events: none; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-icon { display: grid; place-items: center; width: 30px; height: 36px; border: 1px solid rgba(219, 167, 202, .24); border-radius: 5px 9px 5px 5px; color: #d6accb; background: rgba(154, 98, 151, .12); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-icon svg { width: 17px; height: 17px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-copy b { color: #dedfea; font-size: 12px; font-weight: 500; line-height: 1.55; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-copy small { color: #a098b1; font-size: 10px; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-arrow { color: #c5a6ca; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-inbox-document:hover { transform: translateX(2px); border-color: #a67ba1; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-inbox-document { flex: 1; grid-template-columns: 38px minmax(0, 1fr) 12px; min-height: 85px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-document-icon { width: 38px; height: 46px; }
+
+/* Knowledge cards keep their full title and expose only existing metadata. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card { --sb-note-color: #8acbdc; position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 8px; min-height: 182px; padding: 13px; border: 1px solid color-mix(in srgb, var(--sb-note-color) 26%, #24313d); border-radius: 13px; background: radial-gradient(circle at 100% 0, color-mix(in srgb, var(--sb-note-color) 15%, transparent), transparent 65%), linear-gradient(145deg, #1a2c36, #161e2c); box-shadow: inset 0 1px 0 rgba(214, 244, 255, .07); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card:nth-child(even) { --sb-note-color: #b6a2ed; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card::after { content: ""; position: absolute; right: 13px; top: 50px; width: 3px; height: 3px; border-radius: 50%; background: var(--sb-note-color); box-shadow: 0 0 9px 2px color-mix(in srgb, var(--sb-note-color) 24%, transparent); opacity: .7; pointer-events: none; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-node-glyph { display: grid; place-items: center; width: 25px; height: 25px; color: var(--sb-note-color); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-node-glyph svg { width: 20px; height: 20px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-top .sb-content-chip { font-size: 8px; padding: 2px 5px; color: var(--sb-note-color); border-color: color-mix(in srgb, var(--sb-note-color) 23%, transparent); background: transparent; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-title { color: #e0edf1; font-size: 13px; font-weight: 500; line-height: 1.6; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-date { color: #99aebb; font-size: 9px; line-height: 1.6; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-tags { display: flex; flex-wrap: wrap; gap: 5px; color: #8b9fb0; font-size: 9px; line-height: 1.6; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid :is(.sb-book-tags, .sb-knowledge-tags) > span { padding: 2px 6px; border: 1px solid rgba(145, 185, 202, .16); border-radius: 5px; background: rgba(131, 177, 192, .05); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card .sb-card-action { margin-top: auto; padding-top: 6px; color: var(--sb-note-color); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card:hover { transform: translateY(-2px); border-color: var(--sb-note-color); box-shadow: 0 8px 17px rgba(0, 0, 0, .18), 0 0 17px color-mix(in srgb, var(--sb-note-color) 9%, transparent); }
+
+/* Date tiles remain attached to their original daily note; missing dates stay explicit. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-trail { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-trail::before { content: ""; position: absolute; left: 22px; top: 24px; bottom: 24px; width: 1px; background: linear-gradient(#5a9aa8, #7775a3 65%, transparent); opacity: .55; pointer-events: none; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-entry { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 12px; align-items: center; gap: 12px; min-height: 72px; padding: 10px 0; border: 0; border-radius: 9px; background: transparent; transition: background .2s; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-date-tile { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; width: 44px; min-height: 49px; padding: 6px 2px; border: 1px solid #455b73; border-radius: 9px; background: linear-gradient(150deg, #293f4e, #20283f); box-shadow: inset 0 1px 0 rgba(217, 239, 255, .1); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-date-tile b { color: #d8f3f2; font-size: 20px; line-height: 1.15; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-date-tile small { color: #9eb5c6; font-size: 7px; line-height: 1.4; text-align: center; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-copy b { color: #d7e5ed; font-size: 13px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-copy small { color: #93a9bb; font-size: 10px; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-arrow { color: #a6b6d7; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-daily-entry:hover { background: rgba(105, 144, 184, .08); }
+
+/* A glass housing for the existing Tasks renderer, preserving its native controls. */
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console { min-height: 220px; border: 1px solid rgba(157, 154, 204, .28); border-radius: 13px; background: radial-gradient(ellipse at 100% 0, rgba(119, 96, 181, .12), transparent 65%), #131d2a; box-shadow: inset 0 1px 0 rgba(221, 226, 255, .07); overflow: hidden; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console-top { display: flex; align-items: center; gap: 5px; padding: 11px 13px; border-bottom: 1px solid rgba(140, 151, 194, .15); background: rgba(86, 94, 148, .09); color: #b2b9d2; font-size: 10px; line-height: 1.5; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console-top i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #b293bd; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console-top i:nth-child(2) { background: #858dc2; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console-top i:nth-child(3) { background: #7fbcb0; margin-right: 7px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console .sb-workspace-tasks { padding: 14px; min-width: 0; color: #c9d6e1; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console .tasks-query-result { min-width: 0; font-size: inherit; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console input:is([type="text"], :not([type])) { max-width: 100%; border: 1px solid #45516c; border-radius: 8px; background: #192536; color: #dce6f1; padding: 7px 10px; box-shadow: inset 0 1px 0 rgba(219, 228, 255, .04); }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console input:is([type="text"], :not([type]))::placeholder { color: #91a3ba; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console input:is([type="text"], :not([type])):focus-visible { outline: 2px solid #a59ed0; outline-offset: 2px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console .task-list-item { margin-block: 9px; }
+.ycs-app .sb-workspace-grid.sb-library-grid .sb-task-console .sb-workspace-empty { background: transparent; border-color: rgba(145, 154, 192, .2); }
+
+@container sb-workspace (max-width: 620px) {
+  .ycs-app .sb-workspace-grid.sb-library-grid { gap: 15px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-module-head h2 { font-size: 15px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature { min-height: 245px; padding: 17px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-cards { gap: 10px; }
+}
+@container sb-workspace (max-width: 420px) {
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature { grid-template-columns: 112px minmax(0, 1fr); gap: 14px; padding: 15px 12px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-object { height: 180px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face { padding: 15px 10px 13px 17px; gap: 11px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-face > b { font-size: 13px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info > strong { font-size: 15px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-card { padding: 11px; }
+}
+@container sb-workspace (max-width: 360px) {
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-object { width: 120px; height: 184px; margin: 8px 0 10px; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-info { width: 100%; }
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-knowledge-cards { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ycs-app .sb-workspace-grid.sb-library-grid *,
+  .ycs-app .sb-workspace-grid.sb-library-grid *::before,
+  .ycs-app .sb-workspace-grid.sb-library-grid *::after { animation: none !important; transition: none !important; }
+  .ycs-app .sb-workspace-grid.sb-library-grid :is(.sb-book-feature, .sb-project-portal, .sb-inbox-document, .sb-knowledge-card):hover,
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-object,
+  .ycs-app .sb-workspace-grid.sb-library-grid .sb-book-feature:hover .sb-book-object { transform: none; }
+}
