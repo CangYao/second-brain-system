@@ -22,7 +22,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup/setup.ps1 -Desti
 
 ## 社区插件（手动、可选）
 
-在 Obsidian 设置 → 第三方插件 → 浏览中核对 ID、作者和来源后安装。完整清单见 [plugin manifest](../config/plugin-manifest.json)。QuickAdd / Omnisearch 为 CORE_RECOMMENDED，Dataview / Templater / Tasks / Periodic Notes / Mini Translator 为 OPTIONAL；没有 CORE_REQUIRED 社区插件。不会附带插件 main.js、styles.css、data.json 或 workspace。
+在 Obsidian 设置 → 第三方插件 → 浏览中核对 ID、作者和来源后安装。推荐与可选第三方插件清单见 [plugin manifest](../config/plugin-manifest.json)。QuickAdd / Omnisearch 为 CORE_RECOMMENDED，Dataview / Templater / Tasks / Periodic Notes / Mini Translator 为 OPTIONAL；没有 CORE_REQUIRED 社区插件。这些插件由用户自行安装。本包另附可选的 Baixiao 适配版源代码和运行文件，须按下方步骤审查后手动安装；不附带个人 data.json 或 workspace。
 
 QuickAdd 2.31.0 使用本包提供的官方配置包一次导入六入口，见下方步骤。无需手工创建 Macro；配置包只引用已安装的创建脚本，不复制脚本或包含插件程序。
 
@@ -56,3 +56,13 @@ setup 不安装 QuickAdd；它部署官方可导入 Starter 配置包，不直�
 ## v0.2 可选经验闭环
 
 核心安装仍支持 PowerShell 5.1+，不强制 Python。要启用经验闭环，使用 PowerShell 7.5+，在 ToolPathsFile 提供已安装 Python 3.12+ 的 python 路径；setup 会登记它。安装或升级后，用户明确启用时按 Vault 中 `09_System/Scripts/Evolution/README.md` 运行一次 -Initialize。已有账本拒绝覆盖，不导入原作者历史。缺少配置时普通知识工作继续，经验功能报告 NOT_CONFIGURED。
+
+## 可选 Baixiao 阅读驾驶舱与辅助入口
+
+系统包提供 [Baixiao 适配版及辅助入口说明](../starter-vault/09_System/Templates/Dashboard/README.md)。安装或升级后，在个人 Vault 的 `09_System/Templates/Dashboard` 中取得完整插件附件；审查 `Baixiao-Reading-Cockpit/UPSTREAM.md` 与 `LICENSE`，按 README 的显式文件列表手动复制到 `.obsidian/plugins/ycs-reading-dashboard` 并在 Obsidian 中启用。已有同 ID 插件先禁用并比较，保留自己的 `data.json`。安装器不安装或启用这个附件，不改变第三方插件开关。
+
+配套首页、项目总览和阅读书架使用核心 Bases 与 `second-brain-dashboard` CSS snippet。把六份模板复制到其对应的 `02_Topics`、`03_Books`、`08_Projects` 路径，并填写三个 Markdown 页面的实际创建日期；目标已存在时先比较并手动合并。首页的“阅读驾驶舱”链接使用当前 Vault，无需设置仓库名称。
+
+辅助视图只读取现有笔记；驾驶舱打开、扫描和刷新也不修改源属性。只有明确修改书籍阅读状态时，适配层才更新 `status` 和 `updated`，并重新核对路径、类型与稳定 ID。项目白名单默认空，按“一项目一入口”登记真实文件后才显示项目。QuickAdd 快捷入口需先完成上面的 Starter 配置导入，Tasks 待办栏可选。
+
+分发附件、模板和 CSS 由既有 manifest 更新。已复制的页面、已安装插件和个人设置由用户维护，系统升级不会覆盖；需要更新驾驶舱时手动比较并复制程序文件。社区市场的同 ID 更新可能覆盖二次修改，升级前请保留并重验适配层。无需新增安装器、数据库、服务或自动同步任务。

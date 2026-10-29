@@ -203,6 +203,10 @@
       "sha256": "f461d8ea9e245a413d1b68943817c542cb25fbf337cb38dd661f81efa73813ad"
     },
     {
+      "path": ".obsidian/snippets/second-brain-dashboard.css",
+      "sha256": "f149e0be8f00bb89d10d00d15ef9cf72bcb40c9c107accf521be6bcf0c8b5e3d"
+    },
+    {
       "path": "09_System/Backups/README.md",
       "sha256": "9469cfa2efb955992e0ab9827501ce4b58e6d9d87b45650d9b851ffd20076344"
     },
@@ -295,6 +299,78 @@
       "sha256": "a50b8cc1363bf62dfcf658f713dc2365deec61c3ab6098fff6427b26fe4cf985"
     },
     {
+      "path": "09_System/Templates/Dashboard/02_Topics/第二大脑首页.md",
+      "sha256": "e3397e67a6c742fc2e038f74c2621b669a570b5b32372c1b1c6b427bfb2d1bea"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/02_Topics/首页动态视图.base",
+      "sha256": "89b8f20cfa94116ef87c79a19612c914902dfb0aa33544a4d2c62db463c4a3a3"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/03_Books/阅读书架.base",
+      "sha256": "a676a44e77bc83eb9de1a5bbff387acc3a6598d6960cfc471daa91e36646f441"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/03_Books/阅读书架.md",
+      "sha256": "5dc2c83a0f7732dcdff79b5ba72d00504d2fa035b3484450fb6fa90ba92ed54f"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/08_Projects/项目总览.base",
+      "sha256": "6f556eedd552a277a3996bfa67b9edc08ffadeedb5d0885cee530f31d14bc749"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/08_Projects/项目总览.md",
+      "sha256": "8fe5a7ebdba25f20e7ba029ad6a85fa5f8c281788d4eb7d021efda7f5a56adee"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/build.cjs",
+      "sha256": "4609dc07683e184f75a0fcc078c6bf3bd5aedf4ce7dc32c76b334c30d121b387"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/LICENSE",
+      "sha256": "b09ea8a00086e1c4b0140d224656a9218ebc04c7ce7fcfbd58ac54f71bedda09"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/main.js",
+      "sha256": "2394e42fd92e107dd94696eb40548cc66e2cbced86188dc75d0e2adecd98f19d"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/manifest.json",
+      "sha256": "da78e26b52836fffff12cf256748b1662e720e7512570d1b2dc5092754dbd073"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-data.js",
+      "sha256": "ffb422a932955b5581b4d5dde91b4bec9cb6f4db530d045b01925422c67cf138"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-ui.js",
+      "sha256": "309eecb58dfd89b4920f37f4dc1b3446e52948fbb77db37ec519f5b235bae1f3"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain.css",
+      "sha256": "83b58343c5b49bae6009187b0bdf5fbc8aa4dd5680fb2a475224046771f1058a"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/styles.css",
+      "sha256": "1778e48d9a7dd60b4f85bf19ac16759ae22ef6f6f54b8102c26c218d0daa9018"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/reading-dashboard-contract.test.js",
+      "sha256": "a0ed9018ea94b29c7005e970dc7389cc1927d7ec2cec831104ca2c74a2abb9c8"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/second-brain-data.test.js",
+      "sha256": "47d4468a7fc31ebadc47a2aa90c6d49a5c21e1c7f848aabda00c0031ec11d1a2"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/UPSTREAM.md",
+      "sha256": "63616287494be8b6481f837bd37d43e614da6574a31df074b34b3106ce795258"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/README.md",
+      "sha256": "fdcd5b4651ba2a520059b6e95364f63ff5de02f1b5026acbc60c7b56aa50fc7f"
+    },
+    {
       "path": "09_System/Templates/Knowledge.md",
       "sha256": "b076e9ddf9f00a9bee5f24096f0b43158fefeb4a7d588265c31ed445011abf02"
     },
@@ -360,7 +436,7 @@
     },
     {
       "path": "THIRD-PARTY-NOTICES.md",
-      "sha256": "366aef7204208f58b4dfd4b796e69398f515b53d3efc3b20c54db038919ce244"
+      "sha256": "747c1de3bd8963d321d318360ef495ebf9aa1a196a11cc0d56af7442c39bcba5"
     }
   ],
   "bootstrap_files": [

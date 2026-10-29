@@ -35,7 +35,15 @@ deep-reading、knowledge-synthesis 为独立表述实现，其 SOURCE.md 列出�
 
 ## Not bundled
 
-社区插件、Node、FFmpeg、yt-dlp、whisper.cpp、模型、Obsidian 与 Codex 均由用户另行获取。插件目录、安装包、设备状态和历史数据不在本发行包中。项目代码许可不替代它们各自许可，模型许可/来源也不从推理程序许可推断。
+除下方明确列出的可选 Baixiao 适配附件外，其他社区插件、Node、FFmpeg、yt-dlp、whisper.cpp、模型、Obsidian 与 Codex 均由用户另行获取。已安装插件目录、个人配置、设备状态和历史数据不在本发行包中。项目代码许可不替代它们各自许可，模型许可/来源也不从推理程序许可推断。
+
+## Baixiao Reading Cockpit · optional Second Brain adaptation
+
+- Source: https://github.com/csuyincs-creator/Baixiao-Reading-Cockpit
+- Source version: 1.0.3; fixed commit: `99c34d0a15398636fdbf4e497e76347cdd91fcf4`.
+- Upstream author: YCS; license: MIT. The complete upstream notice is retained at `starter-vault/09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/LICENSE`.
+- Distribution: optional source, built runtime, build helper and tests under `starter-vault/09_System/Templates/Dashboard/Baixiao-Reading-Cockpit`; not automatically installed or enabled. No personal `data.json`, books or projects are included.
+- Local changes: Second Brain data/status adapter, existing QuickAdd Daily integration, navigation and display adjustments. See that directory's `UPSTREAM.md` for provenance and rebuild instructions. This adaptation does not imply upstream endorsement.
 
 ## json-canvas
 

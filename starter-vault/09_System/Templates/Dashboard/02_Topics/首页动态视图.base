@@ -1,0 +1,46 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'note.validation_fixture != true'
+    - '!file.basename.contains("模板")'
+    - or:
+        - and:
+            - 'file.inFolder("00_Inbox")'
+            - '!file.inFolder("00_Inbox/Personal Model")'
+        - 'file.inFolder("01_Knowledge")'
+        - 'file.inFolder("06_Daily")'
+properties:
+  file.name:
+    displayName: 笔记
+  note.updated:
+    displayName: 内容更新
+  file.mtime:
+    displayName: 文件修改
+views:
+  - type: list
+    name: 收件箱资料
+    filters: 'file.inFolder("00_Inbox")'
+    limit: 5
+    order:
+      - file.name
+    sort:
+      - property: file.mtime
+        direction: DESC
+  - type: list
+    name: 知识节点
+    filters: 'file.inFolder("01_Knowledge")'
+    limit: 5
+    order:
+      - file.name
+    sort:
+      - property: note.updated
+        direction: DESC
+  - type: list
+    name: 每日记录
+    filters: 'file.inFolder("06_Daily")'
+    limit: 5
+    order:
+      - file.name
+    sort:
+      - property: file.mtime
+        direction: DESC

@@ -1,0 +1,290 @@
+/* Second Brain dashboard presentation.
+ * Opt in with cssclasses: [sb-dashboard]. No scripts or source-note changes.
+ * Native links, callouts, Bases and Tasks remain usable without this snippet.
+ */
+.sb-dashboard {
+  --file-line-width: 1100px;
+  --sb-gap: 20px;
+  --sb-radius: 16px;
+  --sb-surface: var(--background-primary);
+  --sb-border: var(--background-modifier-border);
+  --sb-muted: var(--text-muted);
+  --sb-accent: var(--interactive-accent);
+  container-name: sb-dashboard;
+  container-type: inline-size;
+}
+
+.sb-dashboard.markdown-preview-view .markdown-preview-sizer {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* Hide presentation metadata only in reading view; source remains editable. */
+.sb-dashboard.markdown-preview-view .metadata-container,
+.sb-dashboard.markdown-preview-view .frontmatter-container,
+.sb-dashboard.markdown-preview-view .inline-title {
+  display: none;
+}
+
+.sb-dashboard h1 {
+  margin-block: 14px 12px;
+  font-size: clamp(1.8rem, 3.6cqi, 2.5rem);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+.sb-dashboard h2 {
+  margin-block: 1.5em .7em;
+  font-size: 1.25em;
+  line-height: 1.4;
+}
+
+.sb-dashboard h3 {
+  font-size: 1.06em;
+  line-height: 1.45;
+}
+
+.sb-dashboard a {
+  text-underline-offset: .2em;
+}
+
+.sb-dashboard a:focus-visible,
+.sb-dashboard button:focus-visible,
+.sb-dashboard summary:focus-visible {
+  outline: 2px solid var(--sb-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The navigation paragraph follows H1 in the same Markdown section. */
+.sb-dashboard h1 + p,
+.sb-dashboard .el-h1 + .el-p > p {
+  color: var(--sb-muted);
+  font-size: .9em;
+  line-height: 2.2;
+}
+
+.sb-dashboard h1 + p a,
+.sb-dashboard .el-h1 + .el-p > p a {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid var(--sb-border);
+  border-radius: 8px;
+  background: var(--background-secondary);
+  text-decoration: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"],
+.sb-dashboard .callout[data-callout="dashboard-grid"] {
+  border: 0;
+  padding: 0;
+  margin-block: 20px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-title,
+.sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-title {
+  display: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content,
+.sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content {
+  padding: 0;
+  overflow: visible;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul > li {
+  min-width: 0;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--sb-border);
+  border-radius: var(--sb-radius);
+  background: var(--sb-surface);
+  color: var(--sb-muted);
+  font-size: .86em;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul > li::marker {
+  content: "";
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] .list-bullet,
+.sb-dashboard .callout[data-callout="dashboard-actions"] li strong + br {
+  display: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] li > p {
+  margin: 0;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] li strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text-normal);
+  font-size: 1.18em;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] li strong a {
+  display: block;
+  text-decoration: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul > li:first-child {
+  background: var(--sb-accent);
+  border-color: var(--sb-accent);
+  color: var(--text-on-accent);
+}
+
+.sb-dashboard .callout[data-callout="dashboard-actions"] li:first-child strong,
+.sb-dashboard .callout[data-callout="dashboard-actions"] li:first-child a {
+  color: var(--text-on-accent);
+}
+
+.sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sb-gap);
+  align-items: start;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content > p:empty {
+  display: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] {
+  min-width: 0;
+  margin: 0 0 var(--sb-gap);
+  padding: 20px;
+  border: 1px solid var(--sb-border);
+  border-radius: var(--sb-radius);
+  background: var(--sb-surface);
+  box-shadow: none;
+  mix-blend-mode: normal;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content > .callout[data-callout="dashboard-panel"] {
+  margin: 0;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] > .callout-title {
+  padding: 0 0 13px;
+  color: var(--text-normal);
+  border-bottom: 1px solid var(--sb-border);
+  margin-bottom: 12px;
+  font-size: 1.05em;
+  font-weight: 650;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] > .callout-title > .callout-icon {
+  display: none;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] > .callout-content {
+  min-width: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] > .callout-content > :first-child {
+  margin-top: 0;
+}
+
+.sb-dashboard .callout[data-callout="dashboard-panel"] > .callout-content > :last-child {
+  margin-bottom: 0;
+}
+
+.sb-dashboard .bases-embed,
+.sb-dashboard .bases-view {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sb-dashboard .bases-embed {
+  border-radius: 10px;
+}
+
+/* Home embeds are quick overviews; full .base views keep native controls. */
+.sb-dashboard.sb-home .bases-toolbar-sort-menu,
+.sb-dashboard.sb-home .bases-toolbar-group-menu,
+.sb-dashboard.sb-home .bases-toolbar-group-by-menu,
+.sb-dashboard.sb-home .bases-toolbar-filter-menu,
+.sb-dashboard.sb-home .bases-toolbar-properties-menu,
+.sb-dashboard.sb-home .bases-toolbar-search,
+.sb-dashboard.sb-home .bases-toolbar-search-menu {
+  display: none;
+}
+
+/* Creation remains an explicit action through the existing capture entries. */
+.sb-dashboard .bases-toolbar-new-item-menu {
+  display: none;
+}
+
+.sb-dashboard .bases-cards-item {
+  border: 1px solid var(--sb-border);
+  border-radius: 12px;
+  background: var(--sb-surface);
+}
+
+.sb-dashboard .bases-cards-property.mod-title .bases-cards-line {
+  white-space: normal;
+  line-height: 1.35;
+  height: 2.7em;
+  overflow-wrap: anywhere;
+}
+
+.sb-dashboard .bases-table-container,
+.sb-dashboard .table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.sb-dashboard .callout.is-collapsible:not([data-callout="dashboard-panel"]) {
+  border-radius: 10px;
+  font-size: .9em;
+}
+
+.sb-dashboard .tasks-query-result {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Respond to the note pane width, including panes beside Obsidian sidebars. */
+@container sb-dashboard (max-width: 780px) {
+  .sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container sb-dashboard (max-width: 420px) {
+  .sb-dashboard .callout[data-callout="dashboard-panel"] {
+    padding: 14px;
+  }
+  .sb-dashboard .callout[data-callout="dashboard-actions"] > .callout-content > ul > li {
+    padding: 14px;
+  }
+}
+
+@media print {
+  .sb-dashboard .callout[data-callout="dashboard-grid"] > .callout-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sb-dashboard .callout[data-callout="dashboard-panel"],
+  .sb-dashboard .bases-cards-item {
+    break-inside: avoid;
+  }
+}

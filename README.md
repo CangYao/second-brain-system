@@ -49,7 +49,9 @@ docs/           # 使用、隐私、可选功能和升级
 
 **Translation**：Mini Translator 是阅读工具，手动安装；向在线服务发送选中的文本，可有本地历史。不安装不影响双语语义规则。见[翻译](docs/translation.md)。
 
-**Git Backup**：Git本地版本管理可选；用户私有远端、认证与push须明确授权，安装公开框架不授权公开个人数据。见[Git](docs/git-backup.md)。社区插件均不打包，见[插件清单](config/plugin-manifest.json)。
+**阅读驾驶舱**：提供基于 Baixiao Reading Cockpit 的 Second Brain 适配版，保留流体与 3D 界面，读取已有书籍。分发附件位于 `09_System/Templates/Dashboard/Baixiao-Reading-Cockpit`，需审查后手动安装，安装器不会启用插件或覆盖个人设置。配套首页、项目总览和书架以 Markdown/Bases 提供。见 [驾驶舱与辅助入口](starter-vault/09_System/Templates/Dashboard/README.md)。
+
+**Git Backup**：Git本地版本管理可选；用户私有远端、认证与push须明确授权，安装公开框架不授权公开个人数据。见[Git](docs/git-backup.md)。除上述明确提供的可选 Baixiao 适配附件外，其他社区插件由用户另行安装，见[插件清单](config/plugin-manifest.json)。
 
 ## 隐私、升级与限制
 
@@ -59,7 +61,7 @@ Windows-first 已做安装模拟与离线验证；没有宣称 macOS/Linux/mobil
 
 ## License
 
-自有代码 Copyright (c) 2026 CangYao，MIT，见[LICENSE](LICENSE)。第三方Skill保留自己的许可与固定来源，见[THIRD-PARTY-NOTICES](THIRD-PARTY-NOTICES.md)。不把整个系统误称为某第三方项目；未捆绑外部工具/模型/插件。
+自有代码 Copyright (c) 2026 CangYao，MIT，见[LICENSE](LICENSE)。第三方 Skill 与可选 Baixiao 插件附件保留自己的许可与固定来源，见[THIRD-PARTY-NOTICES](THIRD-PARTY-NOTICES.md)。不把整个系统误称为某第三方项目；未捆绑外部工具、模型或未列出的插件。
 
 QuickAdd 插件程序不捆绑。安装并启用 QuickAdd 2.31.0 后，按安装文档导入生成 Vault 内的 `09_System/Config/QuickAdd-Starter.quickadd.json`，六入口一次出现，无需手工创建 Macro。“开启安全/受限模式”会禁用社区插件；使用插件时应关闭受限模式。
 

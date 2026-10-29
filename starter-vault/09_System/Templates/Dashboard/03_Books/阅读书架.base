@@ -1,0 +1,82 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'note.type == "book"'
+    - or:
+        - 'file.inFolder("03_Books/Fiction")'
+        - 'file.inFolder("03_Books/Nonfiction")'
+    - '!file.basename.contains("模板")'
+    - 'note.validation_fixture != true'
+formulas:
+  reading_state: 'if(note.status == "reading", "在读", if(note.status == "completed", "已读", if(note.status == "planned", "计划阅读", if(note.status == "paused", "暂停", if(note.status, note.status, "未登记")))))'
+  category_label: 'if(note.book_category == "Fiction", "小说与文学", if(note.book_category == "Nonfiction", "非虚构", "未登记"))'
+properties:
+  file.name:
+    displayName: 书籍
+  note.author:
+    displayName: 作者
+  formula.category_label:
+    displayName: 分类
+  formula.reading_state:
+    displayName: 阅读状态
+  note.updated:
+    displayName: 笔记更新
+views:
+  - type: cards
+    name: 全部书籍
+    cardSize: 240
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - formula.reading_state
+      - note.updated
+  - type: cards
+    name: 正在阅读
+    filters: 'note.status == "reading"'
+    cardSize: 240
+    order:
+      - file.name
+      - note.author
+      - formula.reading_state
+      - note.updated
+  - type: table
+    name: 分类与状态
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - formula.reading_state
+      - note.updated
+  - type: table
+    name: 已读
+    filters: 'note.status == "completed"'
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - note.updated
+  - type: table
+    name: 计划阅读
+    filters: 'note.status == "planned"'
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - note.updated
+  - type: table
+    name: 暂停
+    filters: 'note.status == "paused"'
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - note.updated
+  - type: table
+    name: 状态未登记
+    filters: 'formula.reading_state == "未登记"'
+    order:
+      - file.name
+      - note.author
+      - formula.category_label
+      - note.updated

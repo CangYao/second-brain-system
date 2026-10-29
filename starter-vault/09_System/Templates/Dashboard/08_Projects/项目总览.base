@@ -1,0 +1,43 @@
+# 默认白名单为空。按 Dashboard/README 将实际项目入口加入 or 列表。
+# false 可保留；不要将筛选替换为所有 type: project 笔记。
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.inFolder("08_Projects")'
+    - or:
+        - 'false'
+formulas:
+  entry: 'file.asLink(if(note.title, note.title, file.basename))'
+properties:
+  formula.entry:
+    displayName: 项目入口
+  file.name:
+    displayName: 原始文件
+  note.title:
+    displayName: 笔记标题
+  note.updated:
+    displayName: 笔记内容更新日期
+  note.tags:
+    displayName: 标签
+  note.id:
+    displayName: 稳定 ID
+views:
+  - type: cards
+    name: 项目卡片
+    order:
+      - formula.entry
+      - note.updated
+      - note.tags
+  - type: table
+    name: 项目文件
+    order:
+      - formula.entry
+      - note.updated
+      - note.tags
+      - note.id
+      - file.name
+  - type: table
+    name: 首页入口
+    order:
+      - formula.entry
+      - note.updated

@@ -1,0 +1,231 @@
+/* Second Brain additions. Upstream visual system remains the base. */
+.ycs-app .ycs-sb-search { flex: 1 1 200px; max-width: 320px; height: 34px; }
+.ycs-app .ycs-sb-search input { min-width: 0; margin: 0; }
+.ycs-app .ycs-table tr[hidden] { display: none; }
+.ycs-app .ycs-table td:nth-child(5) { white-space: nowrap; }
+.ycs-app .ycs-queue-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 8px;
+  height: auto;
+  min-height: 58px;
+  text-align: left;
+}
+.ycs-app .ycs-queue-note > span {
+  grid-column: 1 / -1;
+  min-width: 0;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.ycs-app .ycs-queue-note > em { grid-row: 2; grid-column: 2; }
+.ycs-app .ycs-queue-note > small {
+  grid-row: 2;
+  grid-column: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ycs-app .ycs-stat[data-surface-tone="light"] .ycs-stat-content,
+.ycs-app .ycs-stat[data-surface-tone="light"] .ycs-stat-title,
+.ycs-app .ycs-stat[data-surface-tone="light"] .ycs-stat-value,
+.ycs-app .ycs-stat[data-surface-tone="light"] .ycs-stat-unit,
+.ycs-app .ycs-stat[data-surface-tone="light"] .ycs-stat-change {
+  color: #13241b !important;
+  text-shadow: none;
+}
+/* Keep the cockpit's dark glass palette inside this view, including in a light vault. */
+.ycs-app {
+  --background-primary: #0a100d;
+  --background-primary-alt: #101913;
+  --background-secondary: #121c17;
+  --background-secondary-alt: #0c140f;
+  --background-modifier-border: #30463a;
+  --background-modifier-border-hover: #537c65;
+  --background-modifier-hover: rgba(127, 223, 170, .09);
+  --background-modifier-form-field: #101a14;
+  --interactive-normal: #19271f;
+  --interactive-hover: #263a2e;
+  --interactive-accent: #51d493;
+  --interactive-accent-hover: #79e8ac;
+  --text-normal: #edf6f0;
+  --text-muted: #adbbb2;
+  --text-faint: #82978a;
+  --text-on-accent: #07130d;
+  --text-accent: #8ce7b4;
+  --text-accent-hover: #c6f9dc;
+  --h1-color: #f1faf4;
+  --h2-color: #e6f3eb;
+  --h3-color: #e6f3eb;
+  --h4-color: #c9ddd1;
+  --input-shadow: none;
+  --input-shadow-hover: none;
+  color-scheme: dark;
+  color: var(--text-normal);
+  background: radial-gradient(ellipse at 63% 17%, rgba(24, 112, 66, .13), transparent 55%), #080e0b;
+  border-radius: 18px;
+  scrollbar-color: #355040 #101912;
+}
+.ycs-app :is(h1, h2, h3, h4, .ycs-brand, .ycs-section-head, .ycs-progress, .ycs-right-head, .ycs-detail-title) {
+  color: var(--text-normal);
+}
+.ycs-app a { color: var(--text-accent); }
+.ycs-app a:hover { color: var(--text-accent-hover); }
+.ycs-app :is(button, input, select) { box-shadow: none; }
+.ycs-app :is(button, a, input, select):focus-visible {
+  outline: 2px solid #8ce7b4;
+  outline-offset: 3px;
+}
+.ycs-app .ycs-brand { gap: 10px; padding: 0 2px 22px; }
+.ycs-app .ycs-brand b {
+  flex: 0 0 auto;
+  max-width: 2.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 21px;
+  color: #a1f3c4;
+}
+.ycs-app .ycs-brand span { min-width: 0; font-size: 14px; line-height: 1.4; }
+.ycs-app .ycs-sidebar nav button { background: transparent; color: #afc1b5; border-color: transparent; }
+.ycs-app .ycs-sidebar nav button.active,
+.ycs-app .ycs-sidebar nav button:hover { background: #1b3527; color: #f1fff6; border-color: #3b6650; }
+.ycs-app .ycs-create-daily { background: #193c2a; color: #c8f9dd; border-color: #3e9c69; }
+.ycs-app .ycs-queue-note { background: transparent; color: #e2eee6; }
+.ycs-app .ycs-queue-note:hover { background: #1a3023; color: #fff; }
+.ycs-app .ycs-glass { box-shadow: 0 10px 30px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .06); }
+.ycs-app .ycs-sb-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 0 16px;
+}
+.ycs-app .ycs-sb-routes button {
+  border-radius: 10px;
+  min-height: 32px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #ccded2;
+  background: #15261b;
+  border: 1px solid #304b39;
+}
+.ycs-app .ycs-sb-routes button.active {
+  background: #125944;
+  color: #fff;
+  border-color: #125944;
+}
+.ycs-app .ycs-sb-sources {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+.ycs-app .ycs-sb-sources h4 { margin: 8px 0 0; font-size: 13px; }
+.ycs-app .ycs-sb-link { white-space: normal; text-align: left; height: auto; padding: 5px 8px; }
+.ycs-app .ycs-sb-link { color: #b6efd0; background: #14271c; border: 1px solid #335740; border-radius: 7px; }
+.ycs-app .ycs-sb-link:hover { background: #203d2b; border-color: #619d77; }
+.ycs-app .ycs-table-wrap { overflow-x: auto; }
+.ycs-app .ycs-table td:first-child { min-width: 160px; }
+.ycs-app .ycs-table td:first-child button { white-space: normal; text-align: left; }
+.ycs-app .ycs-queue-note span { overflow-wrap: anywhere; }
+.ycs-app .ycs-queue-note[hidden] { display: none; }
+.ycs-app .ycs-annual-head small, .ycs-app .ycs-annual-stock { line-height: 1.6; }
+.ycs-app .ycs-heat-months { justify-content: space-between; min-width: 0; }
+.ycs-app .ycs-heat-cell:focus-visible { outline: 2px solid #125944; outline-offset: 2px; }
+.ycs-app.ycs-compact .ycs-sb-routes { gap: 6px; padding: 12px 0; }
+.ycs-app.ycs-compact .ycs-sb-routes button { flex: 1 1 auto; }
+
+/* The native view-content scrolls. Do not squeeze the scene into a fixed-height grid. */
+.ycs-app:not(.ycs-compact) {
+  height: auto;
+  max-height: none;
+  min-height: 100%;
+  overflow: visible;
+  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: start;
+  gap: 18px;
+  padding: 20px;
+}
+.ycs-app:not(.ycs-compact) .ycs-sidebar {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  min-height: 640px;
+  padding: 20px 14px;
+}
+.ycs-app:not(.ycs-compact) .ycs-main-column {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+}
+.ycs-app:not(.ycs-compact) .ycs-topbar { height: auto; min-height: 60px; gap: 12px; }
+.ycs-app:not(.ycs-compact) .ycs-stats { height: 112px; margin-top: 8px; gap: 12px; }
+.ycs-app:not(.ycs-compact) .ycs-board {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  grid-template-columns: minmax(185px, 225px) minmax(0, 1fr);
+  align-items: start;
+}
+.ycs-app:not(.ycs-compact) .ycs-queue {
+  display: block;
+  min-height: 0;
+  max-height: 590px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.ycs-app:not(.ycs-compact) .ycs-visual { height: auto; overflow: hidden; min-height: 0; }
+.ycs-app:not(.ycs-compact) .ycs-toolbar { flex-wrap: wrap; gap: 6px; }
+.ycs-app:not(.ycs-compact) .ycs-toolbar > span { display: flex; flex-wrap: wrap; gap: 5px; }
+.ycs-app:not(.ycs-compact) .ycs-toolbar button { margin: 0; padding: 0 9px; }
+.ycs-app:not(.ycs-compact) .ycs-stage { flex: 0 0 320px; min-height: 320px; }
+.ycs-app .ycs-timeline { min-height: 0; flex: 0 0 auto; }
+.ycs-app .ycs-annual-body { margin-top: 12px; }
+.ycs-app .ycs-annual-head { flex-wrap: wrap; row-gap: 6px; }
+
+/* Compact, explicit areas also replace upstream viewport-specific detail positions. */
+.ycs-app:not(.ycs-compact) .ycs-right {
+  grid-column: 2;
+  grid-row: 2;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, .9fr) minmax(0, 1fr) !important;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas: "heading metadata sources" "title metadata sources" "path metadata sources" "tags metadata sources" "actions metadata sources";
+  align-items: start;
+  gap: 6px 20px;
+  min-height: 0;
+  padding: 18px;
+  overflow: hidden;
+}
+.ycs-app:not(.ycs-compact) .ycs-right-head { grid-area: heading; font-size: 11px; color: #9ab5a4; }
+.ycs-app:not(.ycs-compact) .ycs-detail-title { grid-area: title; line-height: 1.4; overflow-wrap: anywhere; }
+.ycs-app:not(.ycs-compact) .ycs-detail-id { grid-area: path; font-size: 10px; margin: 0; }
+.ycs-app:not(.ycs-compact) .ycs-detail-context { grid-area: tags; padding: 0; }
+.ycs-app:not(.ycs-compact) .ycs-detail-grid { grid-area: metadata; align-self: start; gap: 9px 8px; grid-template-columns: 64px minmax(0, 1fr); }
+.ycs-app:not(.ycs-compact) .ycs-detail-grid b { white-space: normal; overflow-wrap: anywhere; }
+.ycs-app:not(.ycs-compact) .ycs-sb-sources { grid-area: sources; min-width: 0; padding: 0; gap: 6px; font-size: 12px; }
+.ycs-app:not(.ycs-compact) .ycs-sb-sources h4 { margin: 0; font-size: 11px; color: #9ab5a4; }
+.ycs-app:not(.ycs-compact) .ycs-sb-sources h4:not(:first-child) { margin-top: 8px; }
+.ycs-app:not(.ycs-compact) .ycs-right-actions {
+  grid-area: actions !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: auto !important;
+  align-self: start !important;
+  margin: 4px 0 0 !important;
+}
+.ycs-app:not(.ycs-compact) .ycs-right-actions button { height: 34px !important; font-size: 12px !important; }
+
+/* The plugin chooses this class from its pane width, independently of the window. */
+.ycs-app.ycs-compact { height: auto; min-height: 100%; max-height: none; overflow: visible; }
+.ycs-app.ycs-compact .ycs-compact-main { height: auto; }
+.ycs-app.ycs-compact .ycs-compact-queue { max-height: 440px; min-height: 160px; }
+@media (prefers-reduced-motion: reduce) {
+  .ycs-app .ycs-fluid-fallback { animation: none; }
+}
