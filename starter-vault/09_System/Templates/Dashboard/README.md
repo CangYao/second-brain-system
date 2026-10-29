@@ -1,18 +1,18 @@
 # Baixiao 阅读驾驶舱与辅助入口
 
-本包提供 Baixiao Reading Cockpit 的 Second Brain 适配版，保留原项目的流体卡片、3D 目录卡和设置界面，接入已有书籍。首页、项目总览和阅读书架是配套的 Markdown/Bases 入口，也可独立使用。没有个人项目、书籍数据、私人网址或示例进度，不添加后台脚本或数据索引。
+本包提供 Baixiao Reading Cockpit 的 Second Brain 适配版，保留原项目的流体卡片、3D 目录卡和设置界面。首页（`home`）、项目总览（`projects`）、阅读书架（`table`）与阅读驾驶舱（`dashboard`）在同一插件视图内切换，读取既有 Markdown/Bases；原页面仍可独立使用。没有个人项目、书籍数据、私人网址或示例进度，不添加后台脚本或数据索引。
 
 ## 安装 Baixiao 适配版
 
 插件附件在本目录的 `Baixiao-Reading-Cockpit` 子目录，来源、固定上游提交、二次修改与完整 MIT 许可分别见 `UPSTREAM.md` 和 `LICENSE`。这是同插件 ID 的本地适配版本，不代表上游作者认可本次修改。
 
 1. 先按下方步骤复制六份辅助入口，或保留自己已有的同路径页面。
-2. 审查附件后，将其显式文件复制到当前 Vault 的 `.obsidian/plugins/ycs-reading-dashboard/`，保留 `tests` 子目录：`main.js`、`styles.css`、`manifest.json`、`LICENSE`、`UPSTREAM.md`、`build.cjs`、`second-brain-data.js`、`second-brain-ui.js`、`second-brain.css` 及两份测试。目标已有同 ID 插件时先禁用，比较后只更新这些程序文件；保留自己的 `data.json`，不覆盖整个目录。
+2. 审查附件后，将其显式文件复制到当前 Vault 的 `.obsidian/plugins/ycs-reading-dashboard/`，保留 `tests` 子目录：`main.js`、`styles.css`、`manifest.json`、`LICENSE`、`UPSTREAM.md`、`build.cjs`、`second-brain.css`，四个适配模块 `second-brain-data.js`、`second-brain-ui.js`、`second-brain-workspace-data.js`、`second-brain-workspace-ui.js`，以及四份测试 `reading-dashboard-contract.test.js`、`second-brain-data.test.js`、`workspace-data.test.js`、`workspace-ui.test.js`。目标已有同 ID 插件时先禁用，比较后只更新这些程序文件；保留自己的 `data.json`，不覆盖整个目录。
 3. 在 Obsidian 的第三方插件设置中刷新并手动启用 Baixiao Reading Cockpit。安装器不会关闭受限模式、安装或启用插件，也不会修改 `community-plugins.json`。
-4. 从命令面板选择“打开阅读吸收驾驶舱”，或点击首页的“阅读驾驶舱”。`obsidian://second-brain-cockpit` 使用当前 Vault，不绑定仓库名称；驾驶舱在中心标签页打开。
+4. 从命令面板选择“打开阅读吸收驾驶舱”“打开第二大脑首页”或“打开项目总览”。协议入口可用 `obsidian://second-brain-cockpit?page=home`、`?page=projects`、`?page=dashboard` 定位对应页面；阅读书架为 `?page=table`。这些入口使用当前 Vault，在同一中心驾驶舱标签页内切换；可通过“打开原页面”返回对应 Markdown。
 5. 新安装的显示身份为 Second Brain / 第二大脑。若该插件已有保存的身份设置，继续保留，可在界面中自行修改。Node 只用于可选的开发重建和测试，不是使用驾驶舱的依赖。
 
-驾驶舱只读取两个既有书籍目录的 `type: book` 笔记。打开、刷新、扫描和新建事件都不会补写书籍属性；缺失阅读状态显示“未登记”。仅当用户在界面明确选择四种合法阅读状态时，才更新同一稳定 ID 书籍的 `status` 和 `updated`；不写入吸收状态或猜测完成日期。“新增日记”只调用已配置的 QuickAdd“新增每日记录”，失败时不创建替代目录或笔记。
+书籍区域只读取两个既有书籍目录的 `type: book` 笔记。打开、刷新、扫描和新建事件都不会补写书籍属性；缺失阅读状态显示“未登记”。仅当用户在界面明确选择四种合法阅读状态时，才更新同一稳定 ID 书籍的 `status` 和 `updated`；不写入吸收状态或猜测完成日期。“新增日记”只调用已配置的 QuickAdd“新增每日记录”，失败时不创建替代目录或笔记。
 
 系统升级只更新本目录中的分发附件，**不会自动覆盖已安装插件或个人配置**。需要更新适配版时，先阅读新的 `UPSTREAM.md`，禁用插件、比较并复制上述程序文件，再手动启用。直接使用社区市场更新同 ID 插件可能覆盖适配层；请合并上游变化后运行附件提供的构建与测试流程。禁用插件即可退出驾驶舱，书籍与辅助入口继续保留。
 
@@ -50,20 +50,20 @@
         # - 'file.path == "08_Projects/实际项目目录/项目入口.md"'
 ```
 
-每个项目登记一个入口，不将周记、计划、阶段验收和复盘分别算成新项目。入口应位于 `08_Projects`；若现有项目使用其他目录，可按真实结构调整这一条范围过滤，不迁移源文件。项目页展示原有 `title`（缺失时用文件名）、`id`、`updated` 和 `tags`，不要求添加字段。
+每个项目登记一个入口，不将周记、计划、阶段验收和复盘分别算成新项目。插件当前只接受 `08_Projects` 内明确的 `.md` 路径白名单；修改 `.base` 为其他目录或任意查询不会扩大插件读取范围，不支持的筛选会显示错误并停止该视图读取。项目读取原有 `title`（缺失时用文件名）、`id`、`updated` 和 `tags`，不要求添加字段。
 
-目标、最新确认进展、下一步和阻碍继续在项目原文维护。可在项目总览增加指向具体章节的 Wikilink；未知内容不推测，也不以文件更新时间推断完成情况。
+目标、最新确认进展、下一步和阻碍继续在原记录中维护。插件从 `08_Projects/项目总览.md` 的 `dashboard-panel` 读取已有说明：面板标题及正文中的第一个 Wikilink 使用完整项目路径，与白名单匹配后直接展示该面板；未匹配时只提供原记录入口。可沿用用户已有目标、说明和章节链接，不在插件内另存一份项目进度。通用写法见项目总览模板中的注释示例；未知内容不推测，也不以文件更新时间推断完成情况。
 
 ## 数据口径
 
 - 书架读取 `03_Books/Fiction` 和 `03_Books/Nonfiction` 中 `type: book` 的笔记。沿用 `status` 的 `planned / reading / paused / completed`；缺失时显示“未登记”，未知值原样显示。不自动修正源属性。
-- 首页只查询 `00_Inbox`、`01_Knowledge`、`06_Daily`，排除 `00_Inbox/Personal Model`。书架与首页排除文件名含“模板”或已有 `validation_fixture: true` 的笔记；不会为过滤新增这个字段。
+- 插件首页按 `02_Topics/首页动态视图.base` 的既有筛选、排序与数量限制读取 `00_Inbox`、`01_Knowledge`、`06_Daily`，每栏最多 5 条，排除 `00_Inbox/Personal Model`；快捷入口与 Tasks 查询读取 `02_Topics/第二大脑首页.md`。书架与首页排除文件名含“模板”或已有 `validation_fixture: true` 的笔记；不会为过滤新增这个字段。
 - `note.updated` 表示内容更新日期；`file.mtime` 只用于收件箱与每日记录排序，不代表阅读、项目推进或事件发生日期。
 - 空视图是正常状态，不会填入演示数据。新书缺少阅读状态时出现在全部书籍和“状态未登记”视图；不会自动进入“正在阅读”。
-- 本包限定原目录查询，不扫描外部材料包、系统模板或个人模型。用户另行调整范围时，需自行审查会展示的内容。
+- 本包限定原目录查询，不扫描外部材料包、系统模板或个人模型。插件只兼容当前明确支持的 Bases 筛选，不能仅修改 `.base` 就查询任意目录；原 Bases 仍可独立打开。
 
 ## 更新与验证
 
 模板与 CSS 是系统包文件，可通过既有 manifest 校验和升级流程分发。复制到 `02_Topics`、`03_Books`、`08_Projects` 的页面属于用户文件，系统升级不会改写；需要新布局时，比较新版模板并手动合并。对系统目录内模板或 CSS 的本地修改仍受现有升级冲突检查保护。
 
-打开三个入口，确认嵌入视图无语法错误、链接回到实际笔记、缺失状态仍为“未登记”，并检查自己常用窗口宽度下的显示。只有实际登记项目后才应出现项目卡片。setup/self-test 通过仅说明包结构与配置通过检查，不代表当前 Obsidian、主题或手机界面已经验收。
+在驾驶舱依次切换首页、项目、书架和阅读页，确认仍在同一视图、链接回到实际笔记、缺失状态仍为“未登记”，并检查常用窗口宽度与原 Markdown/Bases 入口。只有实际登记项目后才应出现项目卡片。附件四份测试分别覆盖上游契约、书籍适配、首页/项目数据及视图切换；setup/self-test 通过仅说明包结构与配置通过检查，不代表当前 Obsidian、主题或手机界面已经验收。

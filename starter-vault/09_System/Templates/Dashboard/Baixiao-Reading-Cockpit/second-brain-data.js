@@ -125,7 +125,7 @@ function install({ DashboardView, PluginClass, TFile, Notice, dateKey, localDate
     }
   };
 
-  PluginClass.prototype.activateView = async function () {
+  PluginClass.prototype.activateView = async function (page) {
     const workspace = this.app.workspace;
     const viewType = DashboardView.prototype.getViewType.call({});
     const leaves = workspace.getLeavesOfType(viewType) || [];
@@ -143,6 +143,9 @@ function install({ DashboardView, PluginClass, TFile, Notice, dateKey, localDate
       return false;
     }
     await leaf.setViewState({ type: viewType, active: true });
+    if (['home', 'projects', 'dashboard', 'table'].includes(page) && leaf.view?.navigateSecondBrain) {
+      await leaf.view.navigateSecondBrain(page);
+    }
     await workspace.revealLeaf(leaf);
     return true;
   };
@@ -163,14 +166,14 @@ function install({ DashboardView, PluginClass, TFile, Notice, dateKey, localDate
       };
     }
     // Registers a view-only command; neither startup nor the protocol writes business notes.
-    this.registerObsidianProtocolHandler(PROTOCOL, () => {
-      void this.activateView().catch((error) => {
+    this.registerObsidianProtocolHandler(PROTOCOL, (params = {}) => {
+      void this.activateView(params.page).catch((error) => {
         console.warn("Second Brain cockpit could not open.", error);
         notify("驾驶舱未能打开，请从命令面板重试。");
       });
     });
   };
-  DashboardView.prototype.getDisplayText = function () { return "第二大脑 · 阅读驾驶舱"; };
+  DashboardView.prototype.getDisplayText = function () { return "第二大脑 · 驾驶舱"; };
   Object.defineProperty(DashboardView.prototype, INSTALLED, { value: true });
 }
 

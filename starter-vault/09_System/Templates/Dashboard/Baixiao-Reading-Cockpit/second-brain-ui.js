@@ -12,6 +12,19 @@ module.exports = function install({ DashboardView, esc, dateKey, localDate }) {
     projects: '08_Projects/项目总览.md',
     shelf: '03_Books/阅读书架.md'
   };
+  proto.navigateSecondBrain = function (page, filter = 'all') {
+    if (!['home', 'projects', 'dashboard', 'table'].includes(page)) return;
+    this.state.page = page;
+    this.state.filter = filter;
+    this.state.folderFilter = '';
+    return this.render();
+  };
+  proto.renderSecondBrainNavigation = function () {
+    const sidebar = this.contentEl.querySelector('.ycs-sidebar nav');
+    if (!sidebar) return;
+    sidebar.innerHTML = [['第二大脑首页','home','all'],['项目总览','projects','all'],['阅读驾驶舱','dashboard','all'],['阅读书架','table','all'],['正在阅读','dashboard','reading'],['状态未登记','dashboard','unknown']].map(([label,page,filter]) => `<button data-page="${page}" data-filter="${filter}" class="${this.state.page===page&&this.state.filter===filter?'active':''}">${label}<em>›</em></button>`).join('');
+    sidebar.querySelectorAll('[data-page]').forEach(b => b.onclick = () => void this.navigateSecondBrain(b.dataset.page, b.dataset.filter));
+  };
   proto.scopedNotes = function () {
     let notes = this.state.notes;
     if (this.state.folderFilter) notes = notes.filter(n => n.rootFolder === this.state.folderFilter);
@@ -29,6 +42,11 @@ module.exports = function install({ DashboardView, esc, dateKey, localDate }) {
     return [...groups.values()];
   };
   const stat = proto.stat;
+  proto.renderSecondBrainMetric = function (index, label, value, caption, unit) {
+    const original = ['今日新增','未读库存','已经阅读','长期未读'][index % 4];
+    return stat.call(this, original, esc(String(value)), esc(caption), '', false)
+      .replace(`>${original}<`, `>${esc(label)}<`).replace('篇笔记', esc(unit));
+  };
   proto.stat = function (label, value, caption, icon, slim) {
     const notes = this.state.notes;
     const mappings = {
@@ -48,10 +66,12 @@ module.exports = function install({ DashboardView, esc, dateKey, localDate }) {
     const parent = this.contentEl.querySelector('.ycs-topbar,.ycs-compact-head');
     if (!parent || this.contentEl.querySelector('.ycs-sb-routes')) return;
     const routes = document.createElement('nav'); routes.className='ycs-sb-routes'; routes.setAttribute('aria-label','第二大脑导航');
-    routes.innerHTML='<button data-view="dashboard">阅读驾驶舱</button><button data-view="table">阅读书架</button><button data-route="projects">项目总览</button><button data-route="home">第二大脑首页</button><button data-route="shelf">书籍笔记视图</button>';
+    routes.innerHTML='<button data-view="home">第二大脑首页</button><button data-view="projects">项目总览</button><button data-view="dashboard">阅读驾驶舱</button><button data-view="table">阅读书架</button>';
     parent.after(routes);
-    routes.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',this.state.page===b.dataset.view);b.onclick=()=>{this.state.page=b.dataset.view;this.state.filter='all';void this.render();};});
+    routes.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',this.state.page===b.dataset.view);b.setAttribute('aria-current',this.state.page===b.dataset.view?'page':'false');b.onclick=()=>void this.navigateSecondBrain(b.dataset.view);});
     routes.querySelectorAll('[data-route]').forEach(b=>b.onclick=()=>void open(this,routePaths[b.dataset.route]));
+    if (['home', 'projects'].includes(this.state.page)) return;
+    const source = document.createElement('button'); source.textContent='书籍笔记视图'; source.onclick=()=>void open(this,routePaths.shelf); routes.appendChild(source);
     const search=document.createElement('label');search.className='ycs-search ycs-sb-search';
     search.innerHTML='<input type="search" aria-label="搜索书架" placeholder="搜索书名、作者或标签…">';routes.appendChild(search);
     this.bindSearch(this.contentEl);
@@ -126,11 +146,7 @@ module.exports = function install({ DashboardView, esc, dateKey, localDate }) {
   proto.render=async function(){
     if(!this.state.active)this.state.active=this.notes().find(n=>n.reading==='在读')?.path||'';
     await render.call(this);
-    const sidebar=this.contentEl.querySelector('.ycs-sidebar nav');
-    if(sidebar){sidebar.innerHTML=[['阅读驾驶舱','dashboard','all'],['阅读书架','table','all'],['正在阅读','dashboard','reading'],['状态未登记','dashboard','unknown']].map(([label,page,filter])=>`<button data-page="${page}" data-filter="${filter}" class="${this.state.page===page&&this.state.filter===filter?'active':''}">${label}<em>›</em></button>`).join('')+'<button data-route="projects">项目总览<em>↗</em></button><button data-route="home">第二大脑首页<em>↗</em></button>';
-      sidebar.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{this.state.page=b.dataset.page;this.state.filter=b.dataset.filter;void this.render();});
-      sidebar.querySelectorAll('[data-route]').forEach(b=>b.onclick=()=>void open(this,routePaths[b.dataset.route]));
-    }
+    this.renderSecondBrainNavigation();
     const progress=this.contentEl.querySelector('.ycs-progress');
     if(progress){const label=[...progress.children].find(el=>el.tagName==='DIV'&&!el.classList.contains('ycs-progress-controls'));if(label)label.textContent='已读占比';const small=progress.querySelector('small');if(small)small.textContent=`已读 / ${this.state.notes.length} 本（含未登记）`;}
     this.installSecondBrainRoutes();

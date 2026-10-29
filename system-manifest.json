@@ -300,7 +300,7 @@
     },
     {
       "path": "09_System/Templates/Dashboard/02_Topics/第二大脑首页.md",
-      "sha256": "e3397e67a6c742fc2e038f74c2621b669a570b5b32372c1b1c6b427bfb2d1bea"
+      "sha256": "66174c183521cd486a5e0d09bf3a93f33b2af8279d3451116fb3577c70a99df5"
     },
     {
       "path": "09_System/Templates/Dashboard/02_Topics/首页动态视图.base",
@@ -320,11 +320,11 @@
     },
     {
       "path": "09_System/Templates/Dashboard/08_Projects/项目总览.md",
-      "sha256": "8fe5a7ebdba25f20e7ba029ad6a85fa5f8c281788d4eb7d021efda7f5a56adee"
+      "sha256": "8185ffabd6e0b13269eb8619ce46de8f3b95d96d4cd8b7d33753b07382d8cc19"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/build.cjs",
-      "sha256": "4609dc07683e184f75a0fcc078c6bf3bd5aedf4ce7dc32c76b334c30d121b387"
+      "sha256": "3429e67ceeffdf17628deedc0f0e7cc29f431e2feab4e3e3b87e52b485876425"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/LICENSE",
@@ -332,7 +332,7 @@
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/main.js",
-      "sha256": "2394e42fd92e107dd94696eb40548cc66e2cbced86188dc75d0e2adecd98f19d"
+      "sha256": "4157a4abc20ddf3225a2df425bf908ade9f3d03e60b04e8186a2df6f8c3a47c6"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/manifest.json",
@@ -340,19 +340,27 @@
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-data.js",
-      "sha256": "ffb422a932955b5581b4d5dde91b4bec9cb6f4db530d045b01925422c67cf138"
+      "sha256": "81b2a1f6cdb478bea13405378683f3ae92ed9405f52523b36bfe5d9471a65a42"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-ui.js",
-      "sha256": "309eecb58dfd89b4920f37f4dc1b3446e52948fbb77db37ec519f5b235bae1f3"
+      "sha256": "6fbcfbeaa23ae6159739a7dfdbcdd358c35a527acdf5e7e18a69332d1a3a46be"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-workspace-data.js",
+      "sha256": "27c4e9ef98b0779885f238b525f90c56e85e821aacd0332558a2e5eb7af97e52"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain-workspace-ui.js",
+      "sha256": "b7cbfd631f409d5feaf1a13894cc3de08c903fae2b45ffc4391369a20bcc3641"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/second-brain.css",
-      "sha256": "83b58343c5b49bae6009187b0bdf5fbc8aa4dd5680fb2a475224046771f1058a"
+      "sha256": "6857fbbe574f27484334251a22446be46a71d2774ee5caeec106173e3ecf02a7"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/styles.css",
-      "sha256": "1778e48d9a7dd60b4f85bf19ac16759ae22ef6f6f54b8102c26c218d0daa9018"
+      "sha256": "d2d4197f1e7a5e0d4b500c80ae763ec2341500fcb4e317b0caee9a3bc8386afa"
     },
     {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/reading-dashboard-contract.test.js",
@@ -363,12 +371,20 @@
       "sha256": "47d4468a7fc31ebadc47a2aa90c6d49a5c21e1c7f848aabda00c0031ec11d1a2"
     },
     {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/workspace-data.test.js",
+      "sha256": "9c491e688b5f894899024ab4cdf58c68de21f1db0fdc53dabd15e3e79b4810bf"
+    },
+    {
+      "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/tests/workspace-ui.test.js",
+      "sha256": "bc9b6713db8436359742645e17d7989dd543be24f700ec78ea4d41c51384f908"
+    },
+    {
       "path": "09_System/Templates/Dashboard/Baixiao-Reading-Cockpit/UPSTREAM.md",
-      "sha256": "63616287494be8b6481f837bd37d43e614da6574a31df074b34b3106ce795258"
+      "sha256": "5ea026d75a894d4b4aa0cc77c907f4ba73764531903d195c476493abb0ca5df6"
     },
     {
       "path": "09_System/Templates/Dashboard/README.md",
-      "sha256": "fdcd5b4651ba2a520059b6e95364f63ff5de02f1b5026acbc60c7b56aa50fc7f"
+      "sha256": "cd19285083ad2c4550ce85a1c0e61b751a1b2fb7686e7aafb97cee3621c111cb"
     },
     {
       "path": "09_System/Templates/Knowledge.md",
